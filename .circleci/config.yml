@@ -12,12 +12,12 @@ jobs:
       DJANGO_SECRET: "test-secret"
     working_directory: ~/repo/backend
     steps:
-      - checkout
+      - checkout:
+          path: ~/repo
 
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "requirements.txt" }}
-          - v1-dependencies-
 
       - run:
           name: install dependencies
