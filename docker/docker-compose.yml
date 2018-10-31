@@ -1,0 +1,35 @@
+version: '3.2'
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - ./config/keys.env
+
+  postgres:
+    image: postgres:10.1-alpine
+    env_file:
+      - ./config/keys.env
+
+  nginx:
+    image: nginx
+    volumes:
+      - ./config/nginx:/etc/nginx/conf.d
+      - static:/static
+      - ./media:/media
+
+  celery:
+    build:
+      context: .
+      dockerfile: docker/production/backend/Dockerfile
+    env_file:
+      - ./config/keys.env
+
+  celery-beat:
+    build:
+      context: .
+      dockerfile: docker/production/backend/Dockerfile
+    env_file:
+      - ./config/keys.env

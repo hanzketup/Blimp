@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "Blimp",
+    "description": "See more. Do more.",
+    "slug": "blimp",
+    "privacy": "public",
+    "sdkVersion": "30.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffbe76"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.blimpuf.blimp",
+      "config": {
+        "googleMapsApiKey": "AIzaSyAQcFKeLl-WQ2-zDR-61G_WQ94Pmjx3Ibo"
+      }
+    },
+    "android": {
+      "package": "com.blimpuf.blimp",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAQcFKeLl-WQ2-zDR-61G_WQ94Pmjx3Ibo"
+        }
+      }
+    }
+  }
+}
