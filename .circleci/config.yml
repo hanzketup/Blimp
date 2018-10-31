@@ -1,7 +1,7 @@
 version: 2
 jobs:
 
-  build_backend:
+  build_api:
     docker:
       - image: circleci/python:3.6.1
       - image: circleci/postgres:9.6-alpine
@@ -10,7 +10,7 @@ jobs:
       POSTGRES_PASSWORD: "pwd"
       DJANGO_ENVIRONMENT: "development"
       DJANGO_SECRET: "test-secret"
-    working_directory: ~/repo/backend
+    working_directory: ~/repo/api
     steps:
       - checkout:
           path: ~/repo
@@ -46,4 +46,4 @@ workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - build_backend
+      - build_api
