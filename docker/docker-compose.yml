@@ -1,35 +1,70 @@
-version: '3.2'
+version: '3.7'
 
 services:
   django:
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ../api
+      dockerfile: docker/production/Dockerfile
+    stdin_open: true
+    tty: true
+    ports:
+      - "8000:8000"
+    volumes:
+      - assets:/code/assets
+      - static:/code/static
+      - ./media:/media
+      - ./config:/code/config
     env_file:
       - ./config/keys.env
+    depends_on:
+      - postgres
+      - redis
 
   postgres:
     image: postgres:10.1-alpine
+    ports:
+      - "5432"
+    volumes:
+      - ./db_data:/var/lib/postgresql/data
     env_file:
       - ./config/keys.env
+
+  redis:
+    image: "redis:alpine"
 
   nginx:
     image: nginx
+    ports:
+      - "80:80"
     volumes:
       - ./config/nginx:/etc/nginx/conf.d
-      - static:/static
+      - static:/code/static
       - ./media:/media
+    depends_on:
+      - django
 
   celery:
     build:
-      context: .
-      dockerfile: docker/production/backend/Dockerfile
+      context: ../api
+      dockerfile: docker/production/Dockerfile
+    command: celery -A api worker -l info
     env_file:
       - ./config/keys.env
+    depends_on:
+      - postgres
+      - redis
 
   celery-beat:
     build:
-      context: .
-      dockerfile: docker/production/backend/Dockerfile
+      context: ../api
+      dockerfile: docker/production/Dockerfile
+    command: celery -A api beat -l info
     env_file:
       - ./config/keys.env
+    depends_on:
+      - postgres
+      - redis
+
+volumes:
+    assets:
+    static:

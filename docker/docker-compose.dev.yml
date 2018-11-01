@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  django:
+    build:
+      dockerfile: docker/development/Dockerfile
+    volumes:
+      - ../api:/code
+
+  celery:
+    build:
+      dockerfile: docker/development/Dockerfile
+
+  celery-beat:
+    build:
+      dockerfile: docker/development/Dockerfile
