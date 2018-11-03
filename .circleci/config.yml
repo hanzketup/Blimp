@@ -72,14 +72,12 @@ jobs:
         machine:
           enabled: true
         steps:
-        - add_ssh_keys:
-            fingerprints:
-            - "	e4:15:85:65:79:d9:2e:a1:0b:b3:b4:eb:00:e0:25:bc"
+        - add_ssh_keys
 
         - run:
             name: Deploy Over SSH
             command: |
-              ssh -o "StrictHostKeyChecking no" $SSH_USER@$SSH_HOST "/home/Blimp/deploy.sh ${CIRCLE_SHA1}"
+              ssh -o "StrictHostKeyChecking no" $SSH_USER@$SSH_HOST "/home/blimp/deploy.sh ${CIRCLE_SHA1}"
 
 workflows:
   version: 2
