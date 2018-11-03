@@ -42,7 +42,6 @@ class MainMap extends Component {
           <UserMarker />
         </MapCanvas>
 
-        <Editor />
         <CloudPopOut />
 
         <NewDialog navigation={this.props.navigation} />
@@ -68,3 +67,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(MainMap)
+// <Editor />

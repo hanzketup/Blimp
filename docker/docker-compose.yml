@@ -14,11 +14,19 @@ services:
       - static:/code/static
       - ./media:/media
       - ./config:/code/config
+      - ../site:/code/site
     env_file:
       - ./config/keys.env
     depends_on:
       - postgres
       - redis
+
+  site:
+    build:
+      context: ../site
+      dockerfile: docker/production/Dockerfile
+    env_file:
+      - ./config/keys.env
 
   postgres:
     image: postgres:10.1-alpine

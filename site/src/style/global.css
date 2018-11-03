@@ -1,0 +1,32 @@
+
+html{
+  height: 100%;
+}
+
+body{
+  font-family: 'Varela Round', sans-serif;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #fff;
+  color: #474747;
+}
+
+body *{
+  box-sizing: border-box;
+}
+
+#root{
+  height: 100%;
+}
+
+#root > div{
+  height: 100%;
+}
+
+.grecaptcha-badge{
+  z-index: 100;
+}

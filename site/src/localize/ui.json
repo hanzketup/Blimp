@@ -1,0 +1,34 @@
+{
+  "nav": {
+    "home": ["Home", "Hem"],
+    "advertise": ["Advertise with us", "För företag"],
+    "contact": ["Contact", "Kontakt"]
+  },
+  "dialogs": {
+  },
+  "pages": {
+    "home": {
+      "mainTitle": ["Get the app*", "Skaffa appen*"],
+      "tagTitle": ["*The blimp app is soon droppin on the app store and google play!", "*Blimp appen släpps snart för iphone och android!"],
+      "feature_one": {
+        "title": ["Go Explore!", ""],
+        "desc": ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget commodo diam. Quisque vitae pulvinar magna, ac laoreet justo. Vestibulum sollicitudin velit eget enim elementum maximus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.", ""]
+      },
+      "feature_two": {
+        "title": ["Heads up!", ""],
+        "desc": ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget commodo diam. Quisque vitae pulvinar magna, ac laoreet justo. Vestibulum sollicitudin velit eget enim elementum maximus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.", ""]
+      },
+      "preview": {
+        "title": ["Looks pretty rad right?", "Visst ser det mysigt ut!"],
+        "desc": ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget commodo diam. Quisque vitae pulvinar magna, ac laoreet justo.", ""],
+        "button": ["Back to the top", "Tillbaka till toppen"]
+      }
+    },
+    "tos": {
+      "title": ["Terms of Service", "Användarvillkor"]
+    },
+    "coc": {
+      "title": ["Code of Conduct", "Regler"]
+    }
+  }
+}
