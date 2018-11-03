@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get("DJANGO_SECRET", "DO_NOT_USE_IN_PRODUCTION")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False if \
+DEBUG = True if \
     os.environ.get("DJANGO_ENV", "development") == "production" \
     else True
 
@@ -46,7 +46,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'site/build')
+            os.path.join(BASE_DIR, '/site_build')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
