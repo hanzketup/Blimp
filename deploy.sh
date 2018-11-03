@@ -18,3 +18,4 @@ sleep 2
 wget --retry --retry-connrefused http://localhost/debug/ok
 
 echo "Deployment successful."
+

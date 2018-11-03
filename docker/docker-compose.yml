@@ -14,7 +14,7 @@ services:
       - static:/code/static
       - ./media:/media
       - ./config:/code/config
-      - ../site:/code/site
+      - site_build:/site_build
     env_file:
       - ./config/keys.env
     depends_on:
@@ -25,6 +25,8 @@ services:
     build:
       context: ../site
       dockerfile: docker/production/Dockerfile
+    volumes:
+      - site_build:/site_build
     env_file:
       - ./config/keys.env
 
@@ -65,3 +67,4 @@ services:
 volumes:
     assets:
     static:
+    site_build:
