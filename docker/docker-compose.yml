@@ -40,17 +40,6 @@ services:
   redis:
     image: "redis:alpine"
 
-  nginx:
-    image: nginx
-    ports:
-      - "80:80"
-    volumes:
-      - ./config/nginx:/etc/nginx/conf.d
-      - static:/code/static
-      - ./media:/media
-    depends_on:
-      - django
-
   celery:
     build:
       context: ../api

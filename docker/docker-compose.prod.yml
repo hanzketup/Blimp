@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./config/nginx:/etc/nginx/conf.d
+      - static:/code/static
+      - ./media:/media
+    depends_on:
+      - django
