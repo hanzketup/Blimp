@@ -8,4 +8,3 @@ ENV NODE_ENV=production
 
 STOPSIGNAL SIGINT
 ENTRYPOINT ["yarn"]
-CMD ["build"]

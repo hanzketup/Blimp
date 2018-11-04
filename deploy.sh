@@ -10,6 +10,8 @@ docker-compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml bu
 docker-compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml down
 docker-compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml run django python manage.py makemigrations
 docker-compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml run django python manage.py migrate
+
+docker-compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml run site build
 docker-compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml run django python manage.py collectstatic --noinput
 
 docker-compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml up -d
