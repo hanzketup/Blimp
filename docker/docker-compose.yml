@@ -14,7 +14,7 @@ services:
       - static:/code/static
       - ./media:/media
       - ./config:/code/config
-      - site_build:/site_build
+      - site_build:/code/site_build
     env_file:
       - ./config/keys.env
     depends_on:
