@@ -7,7 +7,7 @@ git checkout --force $1
 
 docker-compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml build
 
-docker-compose down
+docker-compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml down
 docker-compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml run django python manage.py makemigrations
 docker-compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml run django python manage.py migrate
 docker-compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml run django python manage.py collectstatic --noinput
@@ -18,4 +18,3 @@ sleep 2
 wget --retry --retry-connrefused http://localhost/debug/ok
 
 echo "Deployment successful."
-
