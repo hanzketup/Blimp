@@ -10,4 +10,4 @@ const Phone = styled.img`
 `
 
 export default props =>
-  <Phone src={'./images/phone_flat.png'} />
+  <Phone src={'%PUBLIC_URL%/images/phone_flat.png'} />
