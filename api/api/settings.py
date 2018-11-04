@@ -121,7 +121,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, '/site_build')
+    '/site_build/',
+    '/site_build/static'
 ]
 
 # Celery setup
