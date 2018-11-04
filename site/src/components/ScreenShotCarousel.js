@@ -14,8 +14,8 @@ const settings = {
 export default props =>
   <Wrap>
     <Slider {...settings}>
-      <img src='/images/sh.jpg' alt='' />
-      <img src='/images/sh.jpg' alt='' />
+      <img src='/static/images/sh.jpg' alt='' />
+      <img src='/static/images/sh.jpg' alt='' />
     </Slider>
     <Info>
       <h4><Translate id='pages.home.preview.title' /></h4>

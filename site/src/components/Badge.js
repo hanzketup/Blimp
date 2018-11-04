@@ -24,7 +24,7 @@ export default withLocalize(
     // localization service needs to load before accessing props.activeLanguage
     return (
       <Wrap href={props.link} type={props.type}>
-        {props.activeLanguage && <Image src={`/images/badges/${props.activeLanguage.code}/${props.type}.svg`} />}
+        {props.activeLanguage && <Image src={`/static/images/badges/${props.activeLanguage.code}/${props.type}.svg`} />}
       </Wrap>
     )
   }

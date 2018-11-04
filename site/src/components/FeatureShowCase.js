@@ -7,7 +7,7 @@ export default props =>
 
     <Feature color='#8398f3' inverted>
       <div>
-        <img src='/images/avatar.png' alt='Blimp avatar with selfie stick' />
+        <img src='/static/images/avatar.png' alt='Blimp avatar with selfie stick' />
       </div>
       <h1><Translate id='pages.home.feature_one.title' /></h1>
       <p><Translate id='pages.home.feature_one.desc' /></p>
@@ -15,7 +15,7 @@ export default props =>
 
     <Feature color='#8398f3'>
       <div>
-        <img src='/images/clouds.png' alt='stack of clouds' />
+        <img src='/static/images/clouds.png' alt='stack of clouds' />
       </div>
       <h1><Translate id='pages.home.feature_two.title' /></h1>
       <p><Translate id='pages.home.feature_two.desc' /></p>
