@@ -3,7 +3,7 @@ version: '3.7'
 services:
 
   site:
-    restart: never
+    restart: no
 
   nginx:
     image: nginx
