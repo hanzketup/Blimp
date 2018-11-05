@@ -12,6 +12,10 @@ const Wrap = styled.a`
   &:hover{
     transform: translateY(-4px);
   }
+
+  @media (${x => x.theme.viewport.phone}){
+      height: ${x => x.type === 'ios' ? '2.5rem' : '3.64rem'};
+  }
   
 `
 

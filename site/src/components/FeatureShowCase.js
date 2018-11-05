@@ -34,6 +34,11 @@ const Wrap = styled.div`
     align-items:space-around;
     overflow: hidden;
     box-shadow: inset 0 6px 8px rgba(0, 0, 0, 0.12), inset 0 -6px 8px rgba(0, 0, 0, 0.12);
+
+    @media (${x => x.theme.viewport.tablet}){
+      flex-direction: column;
+    }
+    
   `
 
 const Feature = styled.div`
@@ -48,6 +53,14 @@ const Feature = styled.div`
 
   background: ${x => x.inverted && 'rgba(0, 0, 0, 0.1)'};
 
+  @media (${x => x.theme.viewport.tablet}){
+      padding: 3rem 0;
+  }
+
+  @media (${x => x.theme.viewport.phone}){
+      padding: 1rem 0;
+  }
+
   > div{
     display: flex;
     justify-content: center;
@@ -56,9 +69,11 @@ const Feature = styled.div`
     width: 12rem;
     padding: 0rem;
     border-radius: 50%;
-    //box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05), -1px -1px 4px rgba(0, 0, 0, 0.02);
-    //background: ${x => x.inverted ? x.color : 'rgba(0, 0, 0, 0.1)'};
     > img{height: 75%;}
+    @media (${x => x.theme.viewport.phone}){
+        height: 6rem;
+        width: 6rem;
+    }
   }
 
   h1{
@@ -67,12 +82,23 @@ const Feature = styled.div`
     font-family: 'Grand Hotel', cursive;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     margin: 0 0 0.2rem 0;
+    @media (${x => x.theme.viewport.phone}){
+        font-size: 2.5rem;
+    }
   }
 
   p {
     width: 75%;
     font-size: 1.2rem;
     font-family: 'Oswald', cursive;
+
+    @media (${x => x.theme.viewport.tablet}){
+      text-align: center;
+    }
+    @media (${x => x.theme.viewport.phone}){
+      width: 95%;
+      font-size: 0.9rem;
+    }
   }
 
 `

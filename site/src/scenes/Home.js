@@ -18,8 +18,8 @@ export default props =>
     <Wrap>
       <Phone />
       <HomeHeader />
+      <Footer />
     </Wrap>
-    <Footer />
     <FeatureShowCase />
     <ScreenShotCarousel />
   </Page>
@@ -38,4 +38,14 @@ const Wrap = styled.div`
     align-items:space-around;
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+
+    @media (${x => x.theme.viewport.tablet}){
+        height: auto;
+        padding: 18rem 0;
+    }
+    
+    @media (${x => x.theme.viewport.phone}){
+        padding: 8rem 0;
+    }
+    
   `

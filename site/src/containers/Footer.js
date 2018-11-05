@@ -25,6 +25,14 @@ let Wrapper = styled.div`
     &:hover{
       border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     }
+    @media (${x => x.theme.viewport.phone}){
+        font-size: 0.8rem;
+        margin: 0 0.2rem;
+    }
+  }
+
+  @media (${x => x.theme.viewport.phone}){
+      padding: 0.4rem 0.2rem;
   }
   
 `

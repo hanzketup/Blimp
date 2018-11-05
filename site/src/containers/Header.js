@@ -16,6 +16,12 @@ let Wrapper = styled.div`
   align-items: center;
   width: 100%;
   padding: 2rem 5rem;
+
+  @media (${x => x.theme.viewport.tablet}){
+      justify-content: center;
+      padding: 2rem 0;
+  }
+  
 `
 
 class Header extends Component {

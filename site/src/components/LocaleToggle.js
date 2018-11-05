@@ -34,4 +34,8 @@ const Option = styled.button`
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
   }
+  @media (${x => x.theme.viewport.phone}){
+      font-size: 0.8rem;
+      padding: 0.15rem;
+  }
 `

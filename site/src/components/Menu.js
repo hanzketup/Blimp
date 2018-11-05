@@ -13,15 +13,14 @@ const Wrap = styled.div`
     padding-bottom: -0.5rem;
     padding: 0.5rem;
     margin: 0 0.4rem;
-    transition: 0.3s ease;
-    opacity: 0.85;
-
-
-    &:hover{
-      opacity: 1;
+    transition: 0.1s ease;
+    opacity: 0.8;
+    &:hover{opacity: 1;}
+    @media (${x => x.theme.viewport.phone}){
+        font-size: 1.6rem;
+        padding: 0.3rem;
     }
   }
-
 `
 
 export default props =>
