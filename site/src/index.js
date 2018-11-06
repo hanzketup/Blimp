@@ -15,6 +15,11 @@ import './style/global.css'
 
 import Root from './containers/Root'
 import Home from './scenes/Home'
+import Advertise from './scenes/Advertise'
+import Contact from './scenes/Contact'
+
+import Tos from './scenes/Tos'
+import Pp from './scenes/Pp'
 
 const store = createStore(reducer, applyMiddleware(thunk))
 window.store = store
@@ -26,6 +31,12 @@ const MainRouter = () =>
         <Router>
           <div>
             <Route exact path='/' component={Home} />
+            <Route exact path='/advertise' component={Advertise} />
+            <Route exact path='/contact' component={Contact} />
+
+            <Route exact path='/terms-of-service' component={Tos} />
+            <Route exact path='/privacy-policy' component={Pp} />
+
           </div>
         </Router>
       </Root>

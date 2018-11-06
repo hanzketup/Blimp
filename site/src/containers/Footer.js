@@ -17,7 +17,7 @@ let Wrapper = styled.div`
 
   > a{
     font-size: 1.1rem;
-    color: #fff;
+    color: ${x => x.colorInverted ? '#333' : '#fff'};
     font-family: 'Oswald', sans-serif;
     text-decoration: none;
     margin: 0 0.5rem;
@@ -34,18 +34,20 @@ let Wrapper = styled.div`
   @media (${x => x.theme.viewport.phone}){
       padding: 0.4rem 0.2rem;
   }
-  
+
 `
 
 class Footer extends Component {
 
   render () {
     return (
-      <Wrapper>
-        <a href='/t-o-s'><Translate id='pages.tos.title' /></a>
+      <Wrapper colorInverted={this.props.colorInverted || false}>
+        <a href='/terms-of-service'><Translate id='pages.tos.title' /></a>
+        <a href='/privacy-policy'><Translate id='pages.pp.title' /></a>
         <a href='/c-o-c'><Translate id='pages.coc.title' /></a>
 
         {this.props.activeLanguage && <LocaleToggle
+          colorInverted={this.props.colorInverted || false}
           selectAction={this.props.setActiveLanguage}
           selected={this.props.activeLanguage}
           languages={this.props.languages}

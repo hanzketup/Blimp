@@ -1,4 +1,5 @@
 {
+  "base_slug": [" | blimp!", " | blimp!"],
   "nav": {
     "home": ["Home", "Hem"],
     "advertise": ["Advertise with us", "För företag"],
@@ -8,6 +9,7 @@
   },
   "pages": {
     "home": {
+      "title": ["Home", "Start"],
       "mainTitle": ["Get the app*", "Skaffa appen*"],
       "tagTitle": ["*The blimp app is soon droppin on the app store and google play!", "*Blimp appen släpps snart för iphone och android!"],
       "feature_one": {
@@ -33,8 +35,29 @@
         "button": ["Back to the top", "Tillbaka till toppen"]
       }
     },
+    "advertise": {
+      "title": ["Advertise", "För Företag"],
+      "first": [
+        "Nå ut till kunder i din närhet. Blimp låter dig driva geografiska reklamkampanjer, konvertera dina leads snabbt!",
+        "Reach out to potential client nearby with blimp BEAME. Advertise your business on a geographical basis and convert leads blazing fast!"
+      ]
+    },
+    "contact": {
+      "title": ["Contact", "Kontakt"],
+      "upper": [
+        "Got a question or Feedback? Want to report a bug you found? We'd love to hear from you! Make sure to include your username if you need in-app help.",
+        "Got a question or Feedback? Want to report a bug you found? We'd love to hear from you! Make sure to include your username if you need in-app help."
+      ],
+      "lower": [
+        "We usually respond within 48 hours.",
+        "We usually respond within 48 hours."
+      ]
+    },
     "tos": {
       "title": ["Terms of Service", "Användarvillkor"]
+    },
+    "pp": {
+      "title": ["Privacy Policy", "Integritetspolicy"]
     },
     "coc": {
       "title": ["Code of Conduct", "Regler"]

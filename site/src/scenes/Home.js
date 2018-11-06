@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Translate } from 'react-localize-redux'
 
 import DocumentTitle from 'react-document-title'
 import Header from '../containers/Header'
@@ -13,7 +14,7 @@ import ScreenShotCarousel from '../components/ScreenShotCarousel'
 
 export default props =>
   <Page>
-    <DocumentTitle title='Home | Blimp!' />
+    <Translate>{({ translate }) => <DocumentTitle title={translate('pages.home.title') + translate('base_slug')} />}</Translate>
     <Header />
     <Wrap>
       <Phone />
@@ -45,7 +46,7 @@ const Wrap = styled.div`
     }
     
     @media (${x => x.theme.viewport.phone}){
-        padding: 8rem 0;
+        padding: 48% 0;
     }
     
   `

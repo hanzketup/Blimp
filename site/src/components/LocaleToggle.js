@@ -2,9 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 
 export default props =>
-  <Wrap>
+  <Wrap colorInverted={props.colorInverted || false}>
     {props.languages.map(lang =>
       <Option
+        colorInverted={props.colorInverted || false}
         key={lang.code}
         onClick={() => props.selectAction(lang.code)}
         isSelected={props.selected.code === lang.code}>
@@ -14,14 +15,14 @@ export default props =>
   </Wrap>
 
 const Wrap = styled.div`
-  background: rgba(255, 255, 255, 0.1);
+  background: ${x => x.colorInverted ? 'rgba(0, 0, 0, 0.1)' : 'rgba(255, 255, 255, 0.1)'};
   padding: 0.1rem 0.2rem;
   border-radius: 3px;
   margin: 0.3rem;
 `
 
 const Option = styled.button`
-  color: ${x => x.isSelected ? '#fff' : 'rgba(255, 255, 255, 0.5)'};
+  color: ${x => x.isSelected ? (x.colorInverted ? '#333' : '#fff') : (x.colorInverted ? 'rgba(0, 0, 0, 0.5)' : 'rgba(255, 255, 255, 0.5)')};
   font-size: 0.9rem;
   outline: none;
   text-decoration: none;
