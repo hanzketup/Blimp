@@ -51,7 +51,7 @@ class Cloudset(viewsets.ViewSet):
             queryset.first().messages.add(serializer.data['id'])
             queryset.first().save()
             return Response(serializer.data)
-        
+
         else:
             return Response(status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
