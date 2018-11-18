@@ -10,6 +10,8 @@ jobs:
       POSTGRES_PASSWORD: "pwd"
       DJANGO_ENVIRONMENT: "development"
       DJANGO_SECRET: "test-secret"
+      CPLUS_INCLUDE_PATH: "/usr/include/gdal"
+      C_INCLUDE_PATH: "/usr/include/gdal"
     working_directory: ~/repo/api
     steps:
       - checkout:
@@ -18,6 +20,10 @@ jobs:
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "requirements.txt" }}
+
+      - run:
+          name: install gis dependencies
+          command: apt-get -t unstable install -y libgdal-dev g++
 
       - run:
           name: install dependencies
