@@ -4,7 +4,7 @@ jobs:
   build_api:
     docker:
       - image: circleci/python:3.6.1
-      - image: circleci/postgres:9.6-alpine
+      - image: mdillon/postgis
         name: postgres
     environment:
       POSTGRES_PASSWORD: "pwd"
@@ -86,6 +86,9 @@ workflows:
       - build_api
       - build_site
       - deploy:
+          requires:
+            - build_api
+            - build_site
           filters:
             branches:
               only: master

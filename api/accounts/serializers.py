@@ -1,6 +1,12 @@
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
-from .models import Account
+from .models import Account, DisallowedUsername
+
+
+class AccountSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Account
+        fields = ('id', 'username', 'avatar', 'coins')
 
 
 class CompleteSerializer(serializers.Serializer):
@@ -13,3 +19,13 @@ class CompleteSerializer(serializers.Serializer):
         instance.signup_complete = True
         instance.save()
         return instance
+
+    def validate(self, data):
+
+        if Account.objects.filter(username=data['username']).exists():
+            raise serializers.ValidationError(_('Username already exists.'))
+
+        if DisallowedUsername.objects.filter(username__icontains=data['username']).exists():
+            raise serializers.ValidationError(_('Username not allowed.'))
+
+        return data

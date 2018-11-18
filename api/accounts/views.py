@@ -40,8 +40,10 @@ class Accountset(viewsets.ViewSet):
 
             # return token if user already exists
             if Account.objects.filter(google_uid=idinfo['sub']).exists():
-                token, created = Token.objects.get_or_create(user=Account.objects.get(google_uid=idinfo['sub']).user)
+                account = Account.objects.get(google_uid=idinfo['sub'])
+                token, created = Token.objects.get_or_create(user=account.user)
                 return Response({
+                    'id': account.user.pk,
                     'token': token.key
                 })
 
@@ -56,6 +58,7 @@ class Accountset(viewsets.ViewSet):
 
                 token = Token.objects.create(user=new_account.user)
                 return Response({
+                    'id': new_account.user.pk,
                     'token': token.key
                 })
 
@@ -73,8 +76,10 @@ class Accountset(viewsets.ViewSet):
         resp_json = resp.json()
         # return token if user already exists
         if Account.objects.filter(facebook_uid=resp_json['id']).exists():
-            token, created = Token.objects.get_or_create(user=Account.objects.get(facebook_uid=resp_json['id']).user)
+            account = Account.objects.get(facebook_uid=resp_json['id'])
+            token, created = Token.objects.get_or_create(user=account.user)
             return Response({
+                'id': account.user.pk,
                 'token': token.key
             })
 
@@ -89,5 +94,6 @@ class Accountset(viewsets.ViewSet):
 
             token = Token.objects.create(user=new_account.user)
             return Response({
+                'id': new_account.user.pk,
                 'token': token.key
             })

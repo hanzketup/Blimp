@@ -23,3 +23,7 @@ class Account(models.Model):
 
     def __str__(self):
         return self.username + " | " + self.email
+
+
+class DisallowedUsername(models.Model):
+    username = models.CharField(max_length=40, blank=True)

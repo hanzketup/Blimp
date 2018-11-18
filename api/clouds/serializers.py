@@ -52,7 +52,6 @@ class CloudSerializer(serializers.Serializer):
         # pop off the messages before creating the cloud (m2m constraint)
         validated_data.pop('messages')
         instance = Cloud.objects.create(**validated_data, created_user=self.context['user'])
-        print(message.data)
         instance.messages.add(message.data['id'])
         instance.save()
         return instance

@@ -20,4 +20,4 @@ ENV DJANGO_ENV=production
 
 EXPOSE 8000
 STOPSIGNAL SIGINT
-CMD ["/usr/local/bin/gunicorn", "-w 3", "-b :8000", "api.wsgi:application"]
+CMD ["/usr/local/bin/gunicorn", "-w 3", "api.wsgi:application"]
