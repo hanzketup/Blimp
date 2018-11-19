@@ -11,7 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get("DJANGO_SECRET", "DO_NOT_USE_IN_PRODUCTION")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if \
+DEBUG = False if \
     os.environ.get("DJANGO_ENV", "development") == "production" \
     else True
 
