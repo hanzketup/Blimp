@@ -14,6 +14,12 @@ router.register(r'accounts', accounts_views.Accountset, basename='accounts')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'api/', include(router.urls)),
-    path(r'api/auth/', include('rest_framework.urls', namespace='rest_framework')),
-    re_path('.*', TemplateView.as_view(template_name='index.html'))
+    path(r'api/auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
+
+# Production react app proxy
+if os.environ.get("DJANGO_ENV", "development") == "production":
+    urlpatterns.insert(
+        len(urlpatterns),
+        re_path('^.*', TemplateView.as_view(template_name='index.html'))
+    )
