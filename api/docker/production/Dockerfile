@@ -7,7 +7,6 @@ RUN apt-get update
 RUN apt-get upgrade -y
 
 RUN apt-get update
-RUN apt-get remove -y binutils
 RUN apt-get install -y gdal-bin libgdal-dev
 
 ENV CPLUS_INCLUDE_PATH=/usr/include/gdal
