@@ -20,6 +20,6 @@ urlpatterns = [
 # Production react app proxy
 if os.environ.get("DJANGO_ENV", "development") == "production":
     urlpatterns.insert(
-        len(urlpatterns),
-        re_path('^.*', TemplateView.as_view(template_name='index.html'))
+        100,
+        re_path(r'^.*/$', TemplateView.as_view(template_name='index.html'))
     )
