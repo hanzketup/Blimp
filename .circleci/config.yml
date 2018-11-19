@@ -3,7 +3,7 @@ jobs:
 
   build_api:
     docker:
-      - image: circleci/python:3.6.1
+      - image: python:3.6
       - image: mdillon/postgis
         name: postgres
     environment:
@@ -23,7 +23,10 @@ jobs:
 
       - run:
           name: install gis dependencies
-          command: apt-get -t unstable install -y libgdal-dev g++
+          command: |
+            apt-get update
+            apt-get install -y gdal-bin libgdal-dev
+            gdal-config --version
 
       - run:
           name: install dependencies
@@ -31,6 +34,11 @@ jobs:
             python3 -m venv venv
             . venv/bin/activate
             pip install -r requirements.txt
+          environment:
+            CPLUS_INCLUDE_PATH: "/usr/include/gdal"
+            C_INCLUDE_PATH: "/usr/include/gdal"
+
+
       - save_cache:
           paths:
             - ./venv
@@ -42,6 +50,7 @@ jobs:
             sleep 2
             . venv/bin/activate
             python manage.py makemigrations
+
       - run:
           name: run tests
           command: |
@@ -70,7 +79,7 @@ jobs:
           key: v1-dependencies-{{ checksum "yarn.lock" }}
 
       - run:
-          name: build rect app
+          name: build react app
           command: yarn build
 
 
