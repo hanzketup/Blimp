@@ -23,9 +23,9 @@ class CompleteSerializer(serializers.Serializer):
     def validate(self, data):
 
         if Account.objects.filter(username=data['username']).exists():
-            raise serializers.ValidationError(_('Username already exists.'))
+            raise serializers.ValidationError()
 
         if DisallowedUsername.objects.filter(username__icontains=data['username']).exists():
-            raise serializers.ValidationError(_('Username not allowed.'))
+            raise serializers.ValidationError()
 
         return data

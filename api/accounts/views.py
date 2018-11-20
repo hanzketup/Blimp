@@ -69,7 +69,6 @@ class Accountset(viewsets.ViewSet):
                 token_account_helper(account=new_account, token=token.key)
             )
 
-
     @action(detail=False, methods=['post'])
     def auth_facebook(self, request):
         # fetch users email and assure that our fb issued token works
