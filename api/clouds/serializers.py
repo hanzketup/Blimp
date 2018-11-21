@@ -36,7 +36,7 @@ class MessageSerializer(serializers.ModelSerializer):
         return instance
 
 
-class CloudSerializer(serializers.Serializer):
+class CloudSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     created_user = serializers.PrimaryKeyRelatedField(many=False, read_only=True)
     type = serializers.ChoiceField(choices=TYPE_CHOICES)
