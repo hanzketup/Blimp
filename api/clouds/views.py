@@ -27,13 +27,10 @@ class Cloudset(viewsets.ViewSet):
 
     @action(detail=False, methods=['post'])
     def nearby(self, request):
-        try:
-            point = Point(*request.data['point'], srid=4326)
-        except:
-            return Response(status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+        point = Point(request.data['position']['coordinates'], srid=4326)
 
         if point:
-            queryset = Cloud.objects.filter(position__distance_lte=(point, D(km=10.2)), visible=True)
+            queryset = Cloud.objects.filter(position__distance_lte=(point, D(km=20)), visible=True)
             serializer = CloudSerializer(queryset, many=True)
             return Response(serializer.data)
 

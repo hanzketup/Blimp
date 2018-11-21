@@ -55,3 +55,7 @@ class CloudSerializer(serializers.ModelSerializer):
         instance.messages.add(message.data['id'])
         instance.save()
         return instance
+
+    class Meta:
+        model = Cloud
+        exclude = ('visible', )
