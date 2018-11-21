@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Cloud, TYPE_CHOICES
 from rest_framework_gis.serializers import GeometryField
 
+from accounts.serializers import AccountSerializer
 from .models import Cloud, Message, Vote, Report
 
 
@@ -19,7 +20,7 @@ class VoteSerializer(serializers.ModelSerializer):
 
 class MessageSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
-    user = serializers.PrimaryKeyRelatedField(many=False, read_only=True)
+    user = AccountSerializer(many=False, read_only=True)
     timestamp = serializers.DateTimeField(read_only=True)
     body = serializers.CharField(max_length=400)
     votes = VoteSerializer(many=True, read_only=True)
