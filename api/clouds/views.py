@@ -6,18 +6,13 @@ from rest_framework.permissions import IsAuthenticated
 from django.contrib.gis.measure import D
 from django.contrib.gis.geos import Point
 
-from clouds.serializers import CloudSerializer, MessageSerializer, ReportSerializer, VoteSerializer
+from clouds.serializers import CloudSerializer, ReportSerializer, VoteSerializer
 from accounts.models import Account
-from .models import Cloud, Message
+from .models import Cloud
 
 
 class Cloudset(viewsets.ViewSet):
     permission_classes = (IsAuthenticated,)
-
-    def list(self, request, pk=None):
-        queryset = Cloud.objects.all()
-        serializer = CloudSerializer(queryset, many=True)
-        return Response(serializer.data)
 
     def create(self, request):
         serializer = CloudSerializer(data=request.data, context={'user': Account.objects.get(user=request.user)})
@@ -38,25 +33,6 @@ class Cloudset(viewsets.ViewSet):
             return Response(status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
     @action(detail=True, methods=['post'])
-    def new_message(self, request, pk=None):
-        serializer = MessageSerializer(data=request.data, context={'user': Account.objects.get(user=request.user)})
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-
-        queryset = Cloud.objects.filter(pk=pk)
-        if queryset.exists():
-            queryset.first().messages.add(serializer.data['id'])
-            queryset.first().save()
-            return Response(serializer.data)
-
-        else:
-            return Response(status=status.HTTP_422_UNPROCESSABLE_ENTITY)
-
-
-class Messageset(viewsets.ViewSet):
-    permission_classes = (IsAuthenticated,)
-
-    @action(detail=True, methods=['post'])
     def vote(self, request, pk=None):
         serializer = VoteSerializer(data={
             'user': Account.objects.get(user=request.user).pk,
@@ -65,7 +41,7 @@ class Messageset(viewsets.ViewSet):
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
-        queryset = Message.objects.filter(pk=pk)
+        queryset = Cloud.objects.filter(pk=pk)
         if queryset.exists():
             queryset.first().votes.add(serializer.data['id'])
             queryset.first().save()
@@ -80,7 +56,7 @@ class Messageset(viewsets.ViewSet):
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
-        queryset = Message.objects.filter(pk=pk)
+        queryset = Cloud.objects.filter(pk=pk)
         if queryset.exists():
             queryset.first().reports.add(serializer.data['id'])
             queryset.first().save()

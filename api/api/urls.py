@@ -8,7 +8,6 @@ from accounts import views as accounts_views
 
 router = routers.DefaultRouter()
 router.register(r'clouds', cloud_views.Cloudset, basename='clouds')
-router.register(r'messages', cloud_views.Messageset, basename='messages')
 router.register(r'accounts', accounts_views.Accountset, basename='accounts')
 
 urlpatterns = [
