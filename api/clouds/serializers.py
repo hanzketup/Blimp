@@ -21,7 +21,7 @@ class VoteSerializer(serializers.ModelSerializer):
 class CloudSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     timestamp = serializers.DateTimeField(read_only=True)
-    user = serializers.PrimaryKeyRelatedField(many=False, read_only=True)
+    user = AccountSerializer(many=False, read_only=True)
 
     type = serializers.ChoiceField(choices=TYPE_CHOICES)
     position = GeometryField()
