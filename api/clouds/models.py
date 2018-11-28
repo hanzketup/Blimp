@@ -1,10 +1,10 @@
 from django.contrib.gis.db import models
 
 TYPE_CHOICES = (
-    ('msg', 'msg'),
+    ('chat', 'chat'),
     ('deal', 'deal'),
     ('review', 'review'),
-    ('warn', 'warn')
+    ('countdown', 'countdown')
 )
 
 
@@ -17,6 +17,10 @@ class Cloud(models.Model):
     type = models.CharField(max_length=12, choices=TYPE_CHOICES)
     position = models.PointField(srid=4326, blank=True)
     body = models.TextField()
+
+    code = models.CharField(blank=True, max_length=20)
+    stars = models.IntegerField(null=True, blank=True)
+    expiry = models.DateTimeField(null=True, blank=True)
 
     votes = models.ManyToManyField('clouds.vote', blank=True)
     reports = models.ManyToManyField('clouds.report', blank=True)
