@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='cloud',
             name='expiry',
-            field=models.DateTimeField(blank=True, null=True),
+            field=models.IntegerField(blank=True, null=True),
         ),
         migrations.AddField(
             model_name='cloud',
