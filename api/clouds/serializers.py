@@ -27,6 +27,10 @@ class CloudSerializer(serializers.ModelSerializer):
     position = GeometryField()
     body = serializers.CharField(max_length=400)
 
+    code = serializers.CharField(required=False, max_length=20)
+    stars = serializers.IntegerField(required=False)
+    expiry = serializers.IntegerField(required=False)
+
     votes = VoteSerializer(many=True, read_only=True)
 
     def create(self, validated_data):
