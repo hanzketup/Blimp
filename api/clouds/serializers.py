@@ -34,7 +34,7 @@ class CloudSerializer(serializers.ModelSerializer):
     votes = VoteSerializer(many=True, read_only=True)
 
     def create(self, validated_data):
-        instance = Cloud.objects.create(**validated_data, user=self.context.user)
+        instance = Cloud.objects.create(**validated_data, user=self.context['user'])
         instance.save()
         return instance
 

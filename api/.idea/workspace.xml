@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e3e7c6a-15da-47d7-abdf-4bcf92ba9e04" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/clouds/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/clouds/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/.babelrc" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/Navigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/Navigator.js" afterDir="false" />
@@ -153,7 +154,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/clouds/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="522">
@@ -165,14 +166,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clouds/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="198">
+              <caret line="17" column="112" selection-start-line="17" selection-start-column="112" selection-end-line="17" selection-end-column="112" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <marker date="1543160188583" expanded="true" signature="784:790" ph="..." />
+                <marker date="1543510748006" expanded="true" signature="784:790" ph="..." />
               </folding>
             </state>
           </provider>
@@ -223,11 +224,11 @@
         <option value="$PROJECT_DIR$/accounts/serializers.py" />
         <option value="$PROJECT_DIR$/accounts/views.py" />
         <option value="$PROJECT_DIR$/clouds/admin.py" />
-        <option value="$PROJECT_DIR$/clouds/views.py" />
         <option value="$PROJECT_DIR$/api/urls.py" />
         <option value="$PROJECT_DIR$/accounts/models.py" />
         <option value="$PROJECT_DIR$/clouds/models.py" />
         <option value="$PROJECT_DIR$/clouds/serializers.py" />
+        <option value="$PROJECT_DIR$/clouds/views.py" />
       </list>
     </option>
   </component>
@@ -540,23 +541,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/clouds/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="17" column="112" selection-start-line="17" selection-start-column="112" selection-end-line="17" selection-end-column="112" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1543510748006" expanded="true" signature="784:790" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/clouds/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
           <caret line="29" column="65" selection-start-line="29" selection-start-column="65" selection-end-line="29" selection-end-column="65" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clouds/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1543160188583" expanded="true" signature="784:790" ph="..." />
           </folding>
         </state>
       </provider>

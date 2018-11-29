@@ -15,7 +15,7 @@ class Cloudset(viewsets.ViewSet):
     permission_classes = (IsAuthenticated,)
 
     def create(self, request):
-        serializer = CloudSerializer(data=request.data, context={'user': Account.objects.get(user=request['user'])})
+        serializer = CloudSerializer(data=request.data, context={'user': Account.objects.get(user=request.user)})
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
