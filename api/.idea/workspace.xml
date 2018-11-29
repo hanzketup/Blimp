@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e3e7c6a-15da-47d7-abdf-4bcf92ba9e04" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/clouds/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/clouds/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/.babelrc" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/Navigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/Navigator.js" afterDir="false" />
@@ -157,8 +156,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/clouds/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+            <state relative-caret-position="558">
+              <caret line="31" column="53" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -566,8 +565,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/clouds/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+        <state relative-caret-position="558">
+          <caret line="31" column="53" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
