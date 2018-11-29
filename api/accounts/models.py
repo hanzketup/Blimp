@@ -16,7 +16,7 @@ class Account(models.Model):
 
     sigPos = models.PointField(null=True, blank=True)
 
-    avatar = models.IntegerField(default=1)
+    avatar = models.IntegerField(default=0)
     coins = models.IntegerField(default=0)
     blocked = models.BooleanField(default=False)
     note = models.TextField(null=True, blank=True)

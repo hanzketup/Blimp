@@ -20,7 +20,7 @@ class Cloud(models.Model):
 
     code = models.CharField(blank=True, max_length=20)
     stars = models.IntegerField(null=True, blank=True)
-    expiry = models.DateTimeField(null=True, blank=True)
+    expiry = models.IntegerField(null=True, blank=True)
 
     votes = models.ManyToManyField('clouds.vote', blank=True)
     reports = models.ManyToManyField('clouds.report', blank=True)

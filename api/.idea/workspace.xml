@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e3e7c6a-15da-47d7-abdf-4bcf92ba9e04" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clouds/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/clouds/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/.babelrc" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/App.js" afterDir="false" />
@@ -15,6 +15,10 @@
       <change beforePath="$PROJECT_DIR$/../client/actions/ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/actions/ui.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/actions/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/actions/user.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../client/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/clouds/cloud_deal.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/clouds/cloud_deal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/clouds/cloud_msg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/clouds/cloud_review.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/clouds/cloud_review.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/clouds/cloud_warn.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/components/CanvasButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/components/CanvasButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/components/CreateReplyButton.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/components/CreditTicker.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/components/CreditTicker.js" afterDir="false" />
@@ -45,6 +49,7 @@
       <change beforePath="$PROJECT_DIR$/../client/screens/AuthComplete.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/screens/AuthComplete.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/screens/Editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/screens/Editor.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/screens/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/screens/Map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/screens/Permissions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/screens/Permissions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/screens/Store.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/screens/Store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../client/yarn.lock" afterDir="false" />
     </list>
@@ -90,10 +95,23 @@
         <entry file="file://$PROJECT_DIR$/clouds/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="396">
-              <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+              <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
               <folding>
-                <marker date="1543405424461" expanded="true" signature="190:191" ph="..." />
-                <marker date="1543405424461" expanded="true" signature="190:334" ph="..." />
+                <marker date="1543504622489" expanded="true" signature="190:191" ph="..." />
+                <marker date="1543504622489" expanded="true" signature="190:334" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/accounts/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
+                <marker date="1543433943913" expanded="true" signature="998:1003" ph="..." />
               </folding>
             </state>
           </provider>
@@ -178,19 +196,19 @@
         <option value="$PROJECT_DIR$/accounts/admin.py" />
         <option value="$PROJECT_DIR$/api/settings.py" />
         <option value="$PROJECT_DIR$/docker/production/Dockerfile" />
-        <option value="$PROJECT_DIR$/accounts/models.py" />
         <option value="$PROJECT_DIR$/accounts/serializers.py" />
         <option value="$PROJECT_DIR$/accounts/views.py" />
         <option value="$PROJECT_DIR$/clouds/admin.py" />
         <option value="$PROJECT_DIR$/clouds/views.py" />
         <option value="$PROJECT_DIR$/api/urls.py" />
         <option value="$PROJECT_DIR$/clouds/serializers.py" />
+        <option value="$PROJECT_DIR$/accounts/models.py" />
         <option value="$PROJECT_DIR$/clouds/models.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2429" />
+    <option name="x" value="2475" />
     <option name="y" value="-4" />
     <option name="width" value="1545" />
     <option name="height" value="898" />
@@ -429,17 +447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-            <marker date="1542716509992" expanded="true" signature="998:1003" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -474,16 +481,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clouds/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clouds/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -495,13 +492,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/clouds/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+            <marker date="1543433943913" expanded="true" signature="998:1003" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/clouds/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
-          <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
           <folding>
-            <marker date="1543405424461" expanded="true" signature="190:191" ph="..." />
-            <marker date="1543405424461" expanded="true" signature="190:334" ph="..." />
+            <marker date="1543504622489" expanded="true" signature="190:191" ph="..." />
+            <marker date="1543504622489" expanded="true" signature="190:334" ph="..." />
           </folding>
         </state>
       </provider>
