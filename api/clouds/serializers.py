@@ -27,7 +27,7 @@ class CloudSerializer(serializers.ModelSerializer):
     position = GeometryField()
     body = serializers.CharField(max_length=400)
 
-    code = serializers.CharField(required=False, allow_null=True, max_length=20)
+    code = serializers.CharField(required=False, allow_null=True, allow_blank=True, max_length=20)
     stars = serializers.IntegerField(required=False, allow_null=True)
     expiry = serializers.IntegerField(required=False, allow_null=True)
 
