@@ -3,12 +3,15 @@ from django.contrib import admin
 from django.urls import include, path, re_path
 from django.views.generic import TemplateView
 from rest_framework import routers
+
 from clouds import views as cloud_views
 from accounts import views as accounts_views
+from general import views as general_views
 
 router = routers.DefaultRouter()
 router.register(r'clouds', cloud_views.Cloudset, basename='clouds')
 router.register(r'accounts', accounts_views.Accountset, basename='accounts')
+router.register(r'coins', general_views.Coinset, basename='coins')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
