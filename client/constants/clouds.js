@@ -1,20 +1,20 @@
 
-export const msg = {
+export const chat = {
   color: '#1dd1a1',
-  icon: require('../assets/clouds/cloud_msg.png')
+  icon: require('../assets/clouds/cloud_chat.png')
 }
 
 export const deal = {
-  color: '#fbc531',
+  color: '#e66767',
   icon: require('../assets/clouds/cloud_deal.png')
 }
 
 export const review = {
-  color: '#a29bfe',
+  color: '#f5cd79',
   icon: require('../assets/clouds/cloud_review.png')
 }
 
-export const warn = {
-  color: '#e17055',
-  icon: require('../assets/clouds/cloud_warn.png')
+export const countdown = {
+  color: '#4a69bd',
+  icon: require('../assets/clouds/cloud_countdown.png')
 }

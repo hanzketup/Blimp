@@ -5,9 +5,9 @@ import Icon from 'react-native-fontawesome-pro'
 export default props =>
   <TouchableHighlight
     onPress={props.onPress}
-    underlayColor={'#ffa776'}
-    style={style.button} >
-    <Icon style={style.icon} name={props.icon} color='#fff5ea' type='light' size={26} />
+    underlayColor={props.color || '#ffa776'}
+    style={[style.button, {backgroundColor: props.color, borderColor: props.borderColor}]}>
+    {props.children}
   </TouchableHighlight>
 
 const style = StyleSheet.create({
@@ -19,8 +19,15 @@ const style = StyleSheet.create({
     marginBottom: 10,
     borderRadius: 50,
     backgroundColor: '#ffbe76',
-    zIndex: 10,
-    borderWidth: 6,
-    borderColor: '#ffd6a9'
+    borderWidth: 5,
+    borderColor: '#ffd6a9',
+    shadowColor: '#000',
+    shadowOffset: {
+    	width: 0,
+    	height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 6
   }
 })

@@ -1,6 +1,6 @@
 import React from 'react'
-import { createStackNavigator, createSwitchNavigator, createDrawerNavigator } from 'react-navigation'
-import CustomDrawer from './components/CustomDrawer'
+import { createStackNavigator, createSwitchNavigator, createDrawerNavigator, createAppContainer } from 'react-navigation'
+import CustomDrawer from './containers/CustomDrawer'
 
 import Auth from './screens/Auth'
 import AuthComplete from './screens/AuthComplete'
@@ -25,13 +25,10 @@ const DrawerNav = createDrawerNavigator({
   contentComponent: props => <CustomDrawer {...props} />
 })
 
-export default createSwitchNavigator({
+export default createAppContainer(createSwitchNavigator({
   Main: {
     screen: DrawerNav,
-    navigationOptions: {header: null}
-  },
-  Editor: {
-    screen: createStackNavigator({Settings: {screen:Editor}})
+    defaultNavigationOptions: {header: null}
   },
   Auth: {
     screen: Auth
@@ -45,3 +42,4 @@ export default createSwitchNavigator({
 }, {
   initialRouteName: 'Main'
 })
+)

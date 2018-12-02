@@ -1,25 +1,37 @@
+import fetcher from '../helpers/fetcher'
 
-export const togglePopout = (state) => {
+export const toggleFeed = (state) => {
   return dispatch => {
-    dispatch({type: 'TOGGLE_MAP_INTERFACE', payload: !state})
-    dispatch({type: 'TOGGLE_POPOUT', payload: state})
+    dispatch({type: 'TOGGLE_FEED', payload: state})
   }
 }
 
-export const setSelectedCloud = (id) => {
-  return {type: 'SET_SELECTED_BALLOON', payload: id}
+export const setHighlighted = (id) => {
+  return {type: 'SET_HIGHLIGHTED', payload: id}
 }
 
-export const setSelectedCloudAndPopout = (id) => {
+export const setHighlightedAndOpen = (id) => {
   return dispatch => {
-    dispatch({type: 'SET_SELECTED_CLOUD', payload: id})
-    dispatch({type: 'TOGGLE_POPOUT', payload: true})
-    dispatch({type: 'TOGGLE_MAP_INTERFACE'})
+    dispatch({type: 'SET_HIGHLIGHTED', payload: id})
+    dispatch({type: 'TOGGLE_FEED', payload: true})
   }
 }
 
-export const reportCloudPost = (id) => {
-  return dispatch => {
-    console.log(id)
+export const voteCloud = (me, id) => {
+  return async dispatch => {
+    fetcher(
+      `/api/clouds/${id}/vote/`,
+      'POST',
+    ).catch(err => null)
+    dispatch({type: 'TOGGLE_VOTE', payload: {me: me, id: id}})
+  }
+}
+
+export const reportCloud = (id) => {
+  return async dispatch => {
+    fetcher(
+      `/api/clouds/${id}/report/`,
+      'POST',
+    ).catch(err => null)
   }
 }

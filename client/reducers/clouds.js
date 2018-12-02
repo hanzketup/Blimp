@@ -1,68 +1,7 @@
 let init = {
-  popout_open: false,
-  selected_cloud: 1,
-  selected_has_neighbors: false,
-  clouds_in_proximity: [],
-  clouds: [
-    {
-      id: 1,
-      type: 'msg',
-      visits: 235,
-      timestamp: 1540290530,
-      coords: {
-        latitude: 58.393027,
-        longitude: 15.656470
-      },
-      posts: [
-
-        {
-          id: 23,
-          user: { id: 3, name: 'Steffe', avatar: 3 },
-          points: 3,
-          body: 'Asså vem gillar ens messör? Så jävla äkligt!',
-          timestamp: 1540290530
-        },
-
-        {
-          id: 24,
-          user: { id: 3, name: 'Hasse', avatar: 3 },
-          points: 3,
-          body: 'Asså vem gillar ens messör? Så jävla äkligt!',
-          timestamp: 1540290530
-        }
-      ]
-    },
-
-    {
-      id: 2,
-      type: 'warn',
-      visits: 235,
-      timestamp: 1540290530,
-      coords: {
-        latitude: 58.393007,
-        longitude: 15.656400
-      },
-      posts: [
-
-        {
-          id: 23,
-          user: { id: 3, name: 'Steffe', avatar: 3 },
-          points: 3,
-          body: 'Asså vem gillar ens messör? Så jävla äkligt!',
-          timestamp: 1540290530
-        },
-
-        {
-          id: 24,
-          user: { id: 3, name: 'Hasse', avatar: 3 },
-          points: 3,
-          body: 'Asså vem gillar ens messör? Så jävla äkligt!',
-          timestamp: 1540290530
-        }
-      ]
-    }
-
-  ]
+  feed_open: false,
+  hightlighted_cloud: null,
+  clouds: []
 }
 
 export default (state = init, action) => {
@@ -70,11 +9,28 @@ export default (state = init, action) => {
     case 'SET_SELECTED_CLOUD':
       return {...state, selected_cloud: action.payload}
 
-    case 'TOGGLE_POPOUT':
-      return {...state, popout_open: typeof (action.payload) === 'boolean' ? action.payload : !state.popout_open}
+    case 'TOGGLE_FEED':
+      console.log(state.feed_open)
+      return {...state, feed_open: typeof (action.payload) === 'boolean' ? action.payload : !state.feed_open}
 
-    case 'SET_SELECTED_CLOUD_AND_POPOUT':
-      return {...state, popout_open: true, selected_cloud: action.payload}
+    case 'ADD_CLOUDS':
+      return {...state, clouds: action.payload}
+
+    case 'APPEND_CLOUDS':
+      return {...state, clouds: [...state.clouds, ...action.payload]}
+
+    case 'TOGGLE_VOTE':
+      let voted_cloud = state.clouds.filter(i => i.id === action.payload.id)[0]
+      voted_cloud.votes = voted_cloud.votes.filter(i => i.user === action.payload.me).length > 0
+      ? voted_cloud.votes.filter(i => i.user !== action.payload.me)
+      : [...voted_cloud.votes, {user: action.payload.me}]
+      return {...state, clouds: [...(state.clouds.filter(i => i.id !== action.payload.id)), voted_cloud]}
+
+    case 'SET_HIGHLIGHTED':
+      return {...state, hightlighted_cloud: action.payload}
+
+    case 'RESET_HIGHLIGHTED':
+      return {...state, hightlighted_cloud: null}
 
     default:
       return state

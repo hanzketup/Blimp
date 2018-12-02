@@ -1,29 +1,33 @@
-import React, { Component } from "react"
-import { View, Text, Alert, Image, StyleSheet } from "react-native"
-import { bindActionCreators } from "redux"
-import { connect } from "react-redux"
-import { LinearGradient } from "expo"
+import React, { Component } from 'react'
+import { View, Text, Alert, Image, StyleSheet } from 'react-native'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { LinearGradient } from 'expo'
 
-import * as editorActions from '../actions/editor'
-import LargeTitle from '../components/LargeTitle'
+import * as userActions from '../actions/user'
+import FancyTitle from '../containers/FancyTitle'
 import AuthButton from '../components/AuthButton'
 
 class AuthControl extends Component {
 
-  render() {
+  render () {
     return (
       <LinearGradient colors={['#f3a683', '#f39d83']} style={style.container}>
 
-      <Image source={require('../assets/blimp.png')} style={{height: '14%',  marginTop: 'auto', marginBottom: '8%'}} resizeMode={'contain'} />
-
-        <LargeTitle
-          title={'Hey! \n Lets get you setup.'}
-          subTitle={'Sign in with your Google or Facebook account to proceed. Blimp wont share your info or post to your feed.'}
-        />
+        <View style={style.top}>
+          <Image source={require('../assets/blimp.png')} style={{height: '32%', marginBottom: '1%'}} resizeMode={'contain'} />
+          <FancyTitle
+            title={'Hey!'}
+            subTitle={'Sign in with your Google or Facebook account to proceed.'}
+            />
+        </View>
 
         <View style={style.buttonWrap}>
           <AuthButton
-            onPress={() => this.props.navigation.navigate('AuthComplete')}
+            onPress={
+              () => this.props.actions.authWithGoogle()
+              .then(resp => resp.isNewUser ? this.props.navigation.navigate('AuthComplete') : this.props.navigation.navigate('Permissions'))
+            }
             style={style.button}
             title={'Sign in with Google'}
             icon={'google'}
@@ -31,7 +35,12 @@ class AuthControl extends Component {
             color={'#d85b4b'}
           />
           <AuthButton
-            onPress={() => this.props.navigation.navigate('AuthComplete')}
+            onPress={() => Facebook.logInWithReadPermissionsAsync('257885001592015', {
+              permissions: ['public_profile', 'email']
+            }).then(data => {
+              console.log(data)
+              this.props.navigation.navigate('Main')
+            })}
             style={style.button}
             title={'Sign in with Facebook'}
             icon={'facebook-f'}
@@ -46,18 +55,17 @@ class AuthControl extends Component {
 }
 
 const mapStateToProps = state => ({
-  state: state.editor
+  state: state.user
 })
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({...editorActions}, dispatch)
+  actions: bindActionCreators({...userActions}, dispatch)
 })
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(AuthControl)
-
 
 const style = StyleSheet.create({
   container: {
@@ -66,15 +74,20 @@ const style = StyleSheet.create({
     alignItems: 'center',
     height: '100%',
     width: '100%',
-    marginBottom: '0%',
-    backgroundColor: '#ffeedb',
+    paddingBottom: '5%',
+    backgroundColor: '#ffeedb'
+  },
+  top: {
+    width: '75%',
+    alignItems: 'center',
+    marginTop: 'auto',
+    marginBottom: -20
   },
   buttonWrap: {
     alignSelf: 'center',
     flexDirection: 'column',
     justifyContent: 'space-around',
     alignItems: 'center',
-    width: '85%',
-    marginBottom: 'auto'
-  },
+    width: '85%'
+  }
 })

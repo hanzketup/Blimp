@@ -7,16 +7,16 @@ import { MapView, Permissions, Audio } from 'expo'
 import * as cloudAction from '../actions/clouds'
 import MapCanvas from '../components/MapCanvas'
 import CloudMarker from '../components/CloudMarker'
+
 import UserMarker from '../containers/UserMarker'
 import MapInterface from '../containers/MapInterface'
-
 import Editor from '../containers/Editor'
-import CloudPopOut from '../containers/CloudPopOut'
-import NewDialog from '../containers/NewDialog'
+import CloudFeed from '../containers/CloudFeed'
 
 class MainMap extends Component {
 
-  componentDidMount () {
+  componentDidUpdate () {
+    console.log('## MAINMAP UPDATED ##')
   }
 
   render () {
@@ -25,16 +25,16 @@ class MainMap extends Component {
         <StatusBar backgroundColor='blue' barStyle='light-content' />
         <MapCanvas
           coords={this.props.state.position}
-          follow={this.props.state.follow && !this.props.state.popout_open} >
+          follow={this.props.state.follow && !this.props.state.feed_open} >
 
           {this.props.state.clouds.map(cld =>
             <CloudMarker
               key={cld.id}
-              coords={cld.coords}
+              coords={cld.position}
               type={cld.type}
               onPress={() => {
-                Audio.Sound.create(require('../assets/sounds/plop.mp3'), { shouldPlay: true })
-                this.props.actions.setSelectedCloudAndPopout(cld.id)
+                Audio.Sound.createAsync(require('../assets/sounds/plop.mp3'), { shouldPlay: true })
+                this.props.actions.setHighlightedAndOpen(cld.id)
               }}
             />
           )}
@@ -42,10 +42,10 @@ class MainMap extends Component {
           <UserMarker />
         </MapCanvas>
 
-        <CloudPopOut />
-
-        <NewDialog navigation={this.props.navigation} />
+        <CloudFeed />
+        <Editor />
         <MapInterface navigation={this.props.navigation} />
+
       </View>
     )
   }
@@ -55,7 +55,8 @@ class MainMap extends Component {
 const mapStateToProps = state => ({
   state: {
     ...state.user,
-    ...state.clouds
+    ...state.clouds,
+    ...state.ui
   }
 })
 

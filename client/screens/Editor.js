@@ -5,7 +5,7 @@ import Icon from "react-native-fontawesome-pro"
 import Editor from '../containers/Editor'
 
 class EditorScreen extends Component {
-  static navigationOptions = ({ navigate, navigation }) => ({
+  static defaultNavigationOptions = ({ navigate, navigation }) => ({
     title: 'Editor',
     headerLeft: <TouchableOpacity onPress={() => navigation.navigate('Main')} style={{height: '100%', justifyContent: 'center', marginTop: 2, paddingLeft: 23}}>
                   <Icon name="arrow-left" color="#333" type="light" size={26} />

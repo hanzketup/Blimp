@@ -3,7 +3,7 @@ import {Text} from "react-native"
 
 
 class StoreScreen extends Component {
-  static navigationOptions = {
+  static defaultNavigationOptions = {
     title: 'dab'
   }
 

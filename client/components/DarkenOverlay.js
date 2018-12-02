@@ -6,7 +6,7 @@ import Fade from '../components/Fade'
 
 export default props =>
   <Fade style={style.container} visible={props.visible}>
-    <BlurView tint='dark' intensity={50} style={{flex: 1, width: '100%'}}>
+    <BlurView tint='dark' intensity={70} style={{flex: 1, width: '100%'}}>
       <TouchableWithoutFeedback onPress={props.onPress}>
         <View style={style.inside}>
           {props.children}
@@ -28,7 +28,8 @@ const style = StyleSheet.create({
     right: 0,
     bottom: 0,
     left: 0,
-    zIndex: 500
+    zIndex: 500,
+    elevation: 25
   },
   inside: {
     flex: 1,
