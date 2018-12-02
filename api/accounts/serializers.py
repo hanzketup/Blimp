@@ -1,7 +1,8 @@
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 from django.utils.translation import ugettext as _
-from .models import Account, DisallowedUsername
+from .models import Account
+from general.models import Wordfilter
 
 
 class AccountSerializer(serializers.ModelSerializer):
@@ -26,7 +27,7 @@ class CompleteSerializer(serializers.Serializer):
         if Account.objects.filter(username=data['username']).exists():
             raise serializers.ValidationError(_('Username already exists.'))
 
-        if DisallowedUsername.objects.filter(username__icontains=data['username']).exists():
+        if Wordfilter.objects.filter(word__icontains=data['username']).exists():
             raise serializers.ValidationError(_('Username not allowed.'))
 
         return data

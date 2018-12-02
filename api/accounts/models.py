@@ -13,20 +13,28 @@ class Account(models.Model):
     facebook_uid = models.CharField(max_length=200, blank=True)
     facebook_token = models.CharField(max_length=500, blank=True)
     signup_complete = models.BooleanField(default=False)
+    notification_token = models.CharField(max_length=100, blank=True)
 
     sigPos = models.PointField(null=True, blank=True)
 
     avatar = models.IntegerField(default=0)
-    coins = models.IntegerField(default=0)
+    coins = models.IntegerField(default=100)
+    distance_traveled = models.IntegerField(default=0)
+
     blocked = models.BooleanField(default=False)
     note = models.TextField(null=True, blank=True)
 
     def __str__(self):
-        return self.username + " | " + self.email
+        return str(self.username) + " | " + str(self.email)
 
 
-class DisallowedUsername(models.Model):
-    username = models.CharField(max_length=40, blank=True)
+class Level(models.Model):
+
+    level = models.IntegerField()
+    goal = models.IntegerField()
+
+    reward = models.IntegerField()
+    # items = models.ManyToManyField('item')
 
     def __str__(self):
-        return self.username
+        return 'level' + str(self.level)

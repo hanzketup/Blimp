@@ -3,4 +3,4 @@ from django.contrib import admin
 from . import models
 
 admin.site.register(models.Account)
-admin.site.register(models.DisallowedUsername)
+admin.site.register(models.Level)

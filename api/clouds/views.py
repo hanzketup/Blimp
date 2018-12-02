@@ -8,7 +8,7 @@ from django.contrib.gis.geos import Point
 
 from clouds.serializers import CloudSerializer, ReportSerializer, VoteSerializer
 from accounts.models import Account
-from .models import Cloud
+from .models import Cloud, Vote
 
 
 class Cloudset(viewsets.ViewSet):
@@ -34,18 +34,26 @@ class Cloudset(viewsets.ViewSet):
 
     @action(detail=True, methods=['post'])
     def vote(self, request, pk=None):
-        serializer = VoteSerializer(data={
-            'user': Account.objects.get(user=request.user).pk,
-            'type': request.data['type']
-        })
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
 
         queryset = Cloud.objects.filter(pk=pk)
         if queryset.exists():
-            queryset.first().votes.add(serializer.data['id'])
-            queryset.first().save()
-            return Response(status=status.HTTP_201_CREATED)
+
+            previous_vote = queryset.first().votes.filter(user=Account.objects.get(user=request.user).pk)
+            if not previous_vote.exists():
+                serializer = VoteSerializer(data={
+                    'user': Account.objects.get(user=request.user).pk,
+                })
+                serializer.is_valid(raise_exception=True)
+                serializer.save()
+
+                queryset.first().votes.add(serializer.data['id'])
+                queryset.first().save()
+
+                return Response(status=status.HTTP_201_CREATED)
+
+            else:
+                previous_vote.delete()
+                return Response(status=status.HTTP_200_OK)
 
         else:
             return Response(status=status.HTTP_422_UNPROCESSABLE_ENTITY)
