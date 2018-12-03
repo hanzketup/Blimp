@@ -27,15 +27,15 @@ class Accountset(viewsets.ViewSet):
 
     @action(detail=False, methods=['get'])
     def me(self, request):
-        try:
-            queryset = Account.objects.filter(user__pk=request.user.pk)
-        except:
-            Response(status.HTTP_400_BAD_REQUEST)
+        queryset = Account.objects.filter(user__pk=request.user.pk)
 
         if queryset.exists():
             serializer = AccountSerializer(queryset[0])
             return Response(serializer.data)
 
+        else:
+            return Response(status.HTTP_401_UNAUTHORIZED)
+        
     @action(detail=False, methods=['post'])
     def complete_signup(self, request):
         queryset = Account.objects.filter(user__pk=request.user.pk)
