@@ -8,12 +8,13 @@ from rest_framework.permissions import IsAuthenticated
 from django.contrib.gis.measure import D
 from django.contrib.gis.geos import Point
 
+from accounts.models import Account
 from .models import Coin
 from .serializers import CoinSerializer
 
-GENERATE_RADIUS = 200
+GENERATE_RADIUS = 100
 GENERATE_MINIMUM = 15
-GENERATE_MAXIMUM = 25
+GENERATE_MAXIMUM = 35
 
 
 class Coinset(viewsets.ViewSet):
@@ -50,3 +51,14 @@ class Coinset(viewsets.ViewSet):
         else:
             serializer = CoinSerializer(queryset, many=True)
             return Response(serializer.data)
+
+    @action(detail=True, methods=['post'])
+    def pickup(self, request, pk=None):
+        coin = Coin.objects.get(pk=pk)
+        account = Account.objects.get(user=request.user)
+
+        account.coins += coin.reward
+        account.save()
+        coin.delete()
+
+        return Response(200)
