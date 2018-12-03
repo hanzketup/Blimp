@@ -22,8 +22,11 @@ class Coinset(viewsets.ViewSet):
 
     @action(detail=False, methods=['post'])
     def nearby(self, request):
-        point = Point(request.data['position']['coordinates'], srid=4326)
-        queryset = Coin.objects.filter(position__distance_lte=(point, D(m=GENERATE_RADIUS)))
+        try:
+            point = Point(request.data['position']['coordinates'], srid=4326)
+            queryset = Coin.objects.filter(position__distance_lte=(point, D(m=GENERATE_RADIUS)))
+        except:
+            Response(status.HTTP_400_BAD_REQUEST)
 
         if queryset.count() < GENERATE_MINIMUM:
             random_length = random.randint(GENERATE_MINIMUM, GENERATE_MAXIMUM)  - queryset.count()
@@ -41,7 +44,8 @@ class Coinset(viewsets.ViewSet):
 
                 point = Point([(x0 + x1), (y0 + y1)], srid=4326)
                 Coin.objects.create(
-                    position=point
+                    position=point,
+                    reward=random.randrange(15, 45)
                 )
 
             queryset = Coin.objects.filter(position__distance_lte=(point, D(m=GENERATE_RADIUS)))
@@ -54,11 +58,16 @@ class Coinset(viewsets.ViewSet):
 
     @action(detail=True, methods=['post'])
     def pickup(self, request, pk=None):
-        coin = Coin.objects.get(pk=pk)
-        account = Account.objects.get(user=request.user)
+        coin = Coin.objects.filter(pk=pk)
 
-        account.coins += coin.reward
-        account.save()
-        coin.delete()
+        if coin.exists():
+            account = Account.objects.get(user=request.user)
+            account.coins += coin.first().reward
+            account.save()
+            coin.first().delete()
 
-        return Response(200)
+            return Response(status.HTTP_200_OK)
+
+        else:
+            return Response(status.HTTP_404_NOT_FOUND)
+

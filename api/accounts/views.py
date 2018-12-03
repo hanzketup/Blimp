@@ -27,7 +27,10 @@ class Accountset(viewsets.ViewSet):
 
     @action(detail=False, methods=['get'])
     def me(self, request):
-        queryset = Account.objects.filter(user__pk=request.user.pk)
+        try:
+            queryset = Account.objects.filter(user__pk=request.user.pk)
+        except:
+            Response(status.HTTP_400_BAD_REQUEST)
 
         if queryset.exists():
             serializer = AccountSerializer(queryset[0])
