@@ -3,11 +3,16 @@ from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from django.contrib.auth.models import User
+from django.utils import timezone
+from django.contrib.gis.geos import Point
+from django.contrib.gis.measure import D
+from geopy.distance import distance
+
 from rest_framework.authtoken.models import Token
 from google.oauth2 import id_token
-from google.auth.transport import requests as g_requests
+from google.auth.transport import requests as g_requestst
 
 from .serializers import AccountSerializer, CompleteSerializer
 from .models import Account
@@ -35,7 +40,7 @@ class Accountset(viewsets.ViewSet):
 
         else:
             return Response(status.HTTP_401_UNAUTHORIZED)
-        
+
     @action(detail=False, methods=['post'])
     def complete_signup(self, request):
         queryset = Account.objects.filter(user__pk=request.user.pk)
@@ -114,3 +119,28 @@ class Accountset(viewsets.ViewSet):
             return Response(
                 token_account_helper(account=new_account, token=token.key)
             )
+
+
+class Levelset(viewsets.ViewSet):
+    permission_classes = (IsAuthenticated,)
+
+    @action(detail=False, methods=['post'])
+    def log_position(self, request):
+        account = Account.objects.get(user__pk=request.user.pk)
+        point = Point(request.data['position']['coordinates'], srid=4326)
+
+        if account.position:
+            distance_between = int(account.position.distance(point) * 100000)
+            print(distance_between)
+
+            if not request.data.get('initial', False):
+                account.distance_traveled += distance_between
+
+        account.position = point
+        account.position_timestamp = timezone.now()
+        account.save()
+
+        return Response({
+            "distance_traveled": account.distance_traveled,
+            "level": account.level
+        })
