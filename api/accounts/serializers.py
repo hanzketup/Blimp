@@ -16,7 +16,7 @@ class AccountSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Account
-        fields = ('id', 'username', 'avatar', 'coins', 'level')
+        fields = ('id', 'username', 'avatar', 'coins', 'level', 'distance_traveled')
 
 
 class CompleteSerializer(serializers.Serializer):
