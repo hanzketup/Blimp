@@ -14,8 +14,8 @@ from rest_framework.authtoken.models import Token
 from google.oauth2 import id_token
 from google.auth.transport import requests as g_requests
 
-from .serializers import AccountSerializer, CompleteSerializer
-from .models import Account
+from .serializers import AccountSerializer, CompleteSerializer, LevelSerializer
+from .models import Account, Level
 
 
 # helper function to serialize login user and access token
@@ -128,19 +128,30 @@ class Levelset(viewsets.ViewSet):
     def log_position(self, request):
         account = Account.objects.get(user__pk=request.user.pk)
         point = Point(request.data['position']['coordinates'], srid=4326)
+        is_top_level = False
 
         if account.position:
             distance_between = int(account.position.distance(point) * 100000)
-            print(distance_between)
 
+            # add the distance between prev point and second point if not initial
             if not request.data.get('initial', False):
                 account.distance_traveled += distance_between
 
+            # check if the user has moved over the goal meters
+            if account.distance_traveled >= account.level.goal:
+                if Level.objects.filter(pk=(account.level.pk + 1)).exists():
+                    account.level_id = account.level.pk + 1
+                else:
+                    # the user has reached the current top level
+                    is_top_level = True
+
+        # write the current location and location timestamp
         account.position = point
         account.position_timestamp = timezone.now()
         account.save()
 
         return Response({
             "distance_traveled": account.distance_traveled,
-            "level": account.level
+            "level": LevelSerializer(account.level).data,
+            "is_top_level": is_top_level
         })

@@ -10,6 +10,8 @@ from clouds.serializers import CloudSerializer, ReportSerializer, VoteSerializer
 from accounts.models import Account
 from .models import Cloud, Vote
 
+CLOUD_POLLING_DISTANCE = 100
+
 
 class Cloudset(viewsets.ViewSet):
     permission_classes = (IsAuthenticated,)
@@ -25,7 +27,7 @@ class Cloudset(viewsets.ViewSet):
         point = Point(request.data['position']['coordinates'], srid=4326)
 
         if point:
-            queryset = Cloud.objects.filter(position__distance_lte=(point, D(km=20)), visible=True)
+            queryset = Cloud.objects.filter(position__distance_lte=(point, D(m=CLOUD_POLLING_DISTANCE)), visible=True)
             serializer = CloudSerializer(queryset, many=True)
             return Response(serializer.data)
 

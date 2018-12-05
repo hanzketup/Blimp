@@ -1,14 +1,22 @@
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 from django.utils.translation import ugettext as _
-from .models import Account
+from .models import Account, Level
 from general.models import Wordfilter
 
 
+class LevelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Level
+        fields = '__all__'
+
+
 class AccountSerializer(serializers.ModelSerializer):
+    level = LevelSerializer(many=False, read_only=True)
+
     class Meta:
         model = Account
-        fields = ('id', 'username', 'avatar', 'coins')
+        fields = ('id', 'username', 'avatar', 'coins', 'level')
 
 
 class CompleteSerializer(serializers.Serializer):

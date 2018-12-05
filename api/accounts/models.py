@@ -1,6 +1,6 @@
 from django.contrib.gis.db import models
 from django.contrib.auth.models import User
-
+from django.contrib.gis.geos import Point
 
 class Level(models.Model):
 
@@ -27,7 +27,7 @@ class Account(models.Model):
     signup_complete = models.BooleanField(default=False)
     notification_token = models.CharField(max_length=100, blank=True)
 
-    position = models.PointField(null=True, blank=True)
+    position = models.PointField(srid=4326, null=True, blank=True)
     position_timestamp = models.DateTimeField(null=True, blank=True)
 
     avatar = models.IntegerField(default=0)
