@@ -12,7 +12,7 @@ from geopy.distance import distance
 
 from rest_framework.authtoken.models import Token
 from google.oauth2 import id_token
-from google.auth.transport import requests as g_requestst
+from google.auth.transport import requests as g_requests
 
 from .serializers import AccountSerializer, CompleteSerializer
 from .models import Account

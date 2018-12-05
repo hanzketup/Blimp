@@ -6,25 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e3e7c6a-15da-47d7-abdf-4bcf92ba9e04" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../client/actions/clouds.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/actions/clouds.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/actions/movement.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/actions/movement.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/actions/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/actions/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/assets/clouds/cloud_chat.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/clouds/cloud_chat.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/assets/clouds/cloud_countdown.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/clouds/cloud_countdown.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/assets/clouds/cloud_deal.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/clouds/cloud_deal.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/assets/clouds/cloud_review.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/clouds/cloud_review.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/assets/icons/backpack.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/components/AvatarMarker.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/components/AvatarMarker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/components/CloudList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/components/CloudList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/constants/globals.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/constants/globals.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/containers/AuthControl.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/containers/AuthControl.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/containers/MainMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/containers/MainMap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/containers/MapInterface.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/containers/MapInterface.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/containers/Root.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/containers/Root.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/containers/UserMarker.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/containers/UserMarker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/helpers/fetcher.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/helpers/fetcher.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/reducers/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/reducers/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/accounts/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+            <state relative-caret-position="234">
+              <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -92,14 +74,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/accounts/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2358">
-              <caret line="131" column="28" selection-start-line="131" selection-start-column="28" selection-end-line="131" selection-end-column="28" />
+            <state relative-caret-position="-234">
+              <caret line="14" column="56" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
-                <marker date="1543937360901" expanded="true" signature="1402:1799" ph="..." />
+                <marker date="1544011692474" expanded="true" signature="1401:1798" ph="..." />
               </folding>
             </state>
           </provider>
@@ -167,9 +148,9 @@
         <option value="$PROJECT_DIR$/clouds/admin.py" />
         <option value="$PROJECT_DIR$/general/views.py" />
         <option value="$PROJECT_DIR$/api/urls.py" />
-        <option value="$PROJECT_DIR$/accounts/views.py" />
         <option value="$PROJECT_DIR$/accounts/admin.py" />
         <option value="$PROJECT_DIR$/accounts/models.py" />
+        <option value="$PROJECT_DIR$/accounts/views.py" />
       </list>
     </option>
   </component>
@@ -522,23 +503,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/views.py">
+    <entry file="file://$PROJECT_DIR$/accounts/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2358">
-          <caret line="131" column="28" selection-start-line="131" selection-start-column="28" selection-end-line="131" selection-end-column="28" />
+        <state relative-caret-position="234">
+          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <marker date="1543937360901" expanded="true" signature="1402:1799" ph="..." />
+            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/models.py">
+    <entry file="file://$PROJECT_DIR$/accounts/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+        <state relative-caret-position="-234">
+          <caret line="14" column="56" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <marker date="1544011692474" expanded="true" signature="1401:1798" ph="..." />
           </folding>
         </state>
       </provider>
