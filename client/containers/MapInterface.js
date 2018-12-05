@@ -16,14 +16,14 @@ class MapInterface extends Component {
     return (this.props.state.show_map_interface &&
       <View style={style.container}>
         <Tickers
-          coins={this.props.state.me.coins || 0}
+          coins={this.props.state.me.coins}
           traveled={this.props.state.me.distance_traveled || 0}
           goal={23/* this.props.state.me.level.goal */}
          />
 
         <View style={style.topButtons}>
 
-          <RoundTopButton color={'#10ac84'} borderColor={'#1dd1a1'} onPress={this.props.actions.toggleFollow}>
+          <RoundTopButton color={'#10ac84'} borderColor={'#1dd1a1'} onPress={() => null}>
             <Icon style={style.icon} name={'backpack'} color='#fff5ea' type='light' size={26} />
           </RoundTopButton>
 
@@ -31,7 +31,7 @@ class MapInterface extends Component {
             <Icon style={style.icon} name={this.props.state.follow ? 'location' : 'location-slash'} color='#fff5ea' type='light' size={26} />
           </RoundTopButton>
 
-          <RoundTopButton color={'#e17055'} borderColor={'#fab1a0'} onPress={this.props.actions.toggleFollow}>
+          <RoundTopButton color={'#e17055'} borderColor={'#fab1a0'} onPress={() => null}>
             <Icon style={style.icon} name={'compass'} color='#fff5ea' type='light' size={26} />
           </RoundTopButton>
 

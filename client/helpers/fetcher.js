@@ -27,11 +27,12 @@ export default async (slug, method = 'GET', body = null, options = {}) => {
 
   console.log(response)
   // auth token rejected / not provided, redirect back to auth page
-  if (response.status === 401) { NavigationService.navigate('Auth') }
+  if (response.status === 401) {
+    NavigationService.navigate('Auth')
+  }
   // handles client-server connection error
   if (response.status === 500) {
-    console.log(await response.text())
-    Alert.alert('Server error', 'Please try again later')
+    // Alert.alert('Server error', 'Please try again later')
   }
 
   return {

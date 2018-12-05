@@ -21,18 +21,6 @@ class Root extends Component {
     let tokenValue = await AsyncStorage.getItem('authToken')
     if (!tokenValue) { NavigationService.navigate('Auth') }
 
-    // store the current logged in user (me)
-    let meValue = await AsyncStorage.getItem('userMe')
-    if (meValue) {
-      this.props.actions.setMe(JSON.parse(meValue))
-    } else {
-      let response = await fetcher('/api/accounts/me/')
-      if (response.successful) {
-        this.props.actions.setMe(response.json)
-        await AsyncStorage.setItem('userMe', JSON.stringify(response.json))
-      }
-    }
-
     // let token = await Notifications.getExpoPushTokenAsync()
 
     // preload images
@@ -45,9 +33,12 @@ class Root extends Component {
     await Font.loadAsync({
       'grand-hotel': require('../assets/fonts/GrandHotel-Regular.ttf')
     })
-
-    console.log('__ preload done __')
     this.props.actions.fontsAreReady()
+
+    // get user from backend
+    let response = await fetcher('/api/accounts/me/')
+    .catch(() => null)
+    if (response.successful) { this.props.actions.setMe(response.json) }
   }
 
   render () {

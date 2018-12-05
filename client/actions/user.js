@@ -21,6 +21,7 @@ export const completeSignup = (username) => {
       }
     )
     if (response.successful) {
+      dispatch({type: 'SET_USERNAME', payload: username})
       return {continue: true}
     } else {
       Alert.alert(
@@ -37,7 +38,7 @@ export const authWithGoogle = () => {
     let auth_request = await Google.logInAsync({
       androidClientId: '140145899902-dc5v45hv4h2856n9p7m70r8ubf7pajum.apps.googleusercontent.com',
       iosClientId: '140145899902-j1ie0ck7f682d3iqh4g50so7f288dks0.apps.googleusercontent.com'
-    })
+    }).catch(Promise.reject(0))
 
     if (auth_request.type !== 'success') { /* TODO show auth error to user */ }
 
@@ -54,6 +55,36 @@ export const authWithGoogle = () => {
       // dump token to storage
       await AsyncStorage.setItem('authToken', verify_request.json.token)
       // populate state with auth data TODO
+      dispatch({type: 'SET_ME', payload: verify_request.json.account})
+      dispatch({type: 'SET_AUTHENTICATED', payload: true})
+      return {isNewUser: !verify_request.json.account.username}
+    }
+  }
+}
+
+export const authWithFacebook = () => {
+  return async dispatch => {
+    let auth_request = await Facebook.logInWithReadPermissionsAsync('257885001592015', {
+      permissions: ['public_profile', 'email']
+    })
+
+    if (auth_request.type !== 'success') { /* TODO show auth error to user */ }
+
+    console.log(auth_request)
+    let verify_request = await fetcher(
+      '/api/accounts/auth_facebook/',
+      'POST',
+      {
+        token: auth_request.token
+      },
+      {unauthorized: true}
+    )
+
+    if (verify_request.successful) {
+      // dump token to storage
+      await AsyncStorage.setItem('authToken', verify_request.json.token)
+      // populate state with auth data TODO
+      dispatch({type: 'SET_ME', payload: verify_request.json.account})
       dispatch({type: 'SET_AUTHENTICATED', payload: true})
       return {isNewUser: !verify_request.json.account.username}
     }

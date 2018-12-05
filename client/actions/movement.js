@@ -37,7 +37,7 @@ export const setLastSigPos = position => {
   })
 }
 
-export const sigPoll = position => {
+export const getClouds = position => {
   return async dispatch => {
     let clouds = await fetcher(
       '/api/clouds/nearby/',

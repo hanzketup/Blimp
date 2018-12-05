@@ -6,44 +6,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e3e7c6a-15da-47d7-abdf-4bcf92ba9e04" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/accounts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0002_auto_20181112_1746.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0003_auto_20181112_1947.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0004_auto_20181112_1950.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0005_auto_20181112_2035.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0006_auto_20181112_2035.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0007_account_created.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0008_remove_account_created.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0009_account_created.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0010_disallowedusername.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0011_auto_20181129_1520.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/migrations/0012_auto_20181202_1946.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/api/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clouds/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/clouds/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clouds/migrations/0002_auto_20181111_1132.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clouds/migrations/0003_auto_20181111_1753.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clouds/migrations/0004_remove_cloud_created_timestamp.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clouds/migrations/0005_cloud_created_timestamp.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clouds/migrations/0006_auto_20181114_1206.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clouds/migrations/0007_auto_20181114_1424.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clouds/migrations/0008_auto_20181114_2004.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clouds/migrations/0009_auto_20181116_1917.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clouds/migrations/0010_auto_20181116_1919.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clouds/migrations/0011_auto_20181125_1600.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clouds/migrations/0012_auto_20181128_1144.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clouds/migrations/0013_auto_20181129_1520.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/general/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general/migrations/0002_auto_20181111_1753.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general/migrations/0003_wordfilter.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general/migrations/0004_coin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/actions/clouds.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/actions/clouds.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/actions/movement.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/actions/movement.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/actions/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/actions/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/clouds/cloud_chat.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/clouds/cloud_chat.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/clouds/cloud_countdown.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/clouds/cloud_countdown.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/clouds/cloud_deal.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/clouds/cloud_deal.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/assets/clouds/cloud_review.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/assets/clouds/cloud_review.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/assets/icons/backpack.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/components/AvatarMarker.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/components/AvatarMarker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/components/CloudList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/components/CloudList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/constants/globals.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/constants/globals.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/containers/AuthControl.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/containers/AuthControl.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/containers/MainMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/containers/MainMap.js" afterDir="false" />
@@ -83,7 +55,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/accounts/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="612">
@@ -120,11 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/accounts/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="761">
-              <caret line="144" column="34" selection-start-line="144" selection-start-column="34" selection-end-line="144" selection-end-column="34" />
+            <state relative-caret-position="2358">
+              <caret line="131" column="28" selection-start-line="131" selection-start-column="28" selection-end-line="131" selection-end-column="28" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
                 <marker date="1543937360901" expanded="true" signature="1402:1799" ph="..." />
@@ -540,16 +512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clouds/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-67">
@@ -562,11 +524,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/accounts/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="761">
-          <caret line="144" column="34" selection-start-line="144" selection-start-column="34" selection-end-line="144" selection-end-column="34" />
+        <state relative-caret-position="2358">
+          <caret line="131" column="28" selection-start-line="131" selection-start-column="28" selection-end-line="131" selection-end-column="28" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
             <marker date="1543937360901" expanded="true" signature="1402:1799" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="34" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>

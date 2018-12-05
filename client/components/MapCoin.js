@@ -1,11 +1,11 @@
 import React from 'react'
 import { MapView } from 'expo'
 
-import { avatarIcons } from '../constants/avatars'
+import icon from '../assets/icons/coin.png'
 
 export default props =>
   <MapView.Marker.Animated
     coordinate={props.coords}
-    image={avatarIcons[props.avatar]}
+    image={icon}
     onPress={props.onPress}
   />

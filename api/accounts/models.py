@@ -11,7 +11,7 @@ class Level(models.Model):
     # items = models.ManyToManyField('item')
 
     def __str__(self):
-        return 'level' + str(self.level)
+        return 'level ' + str(self.id)
 
 
 class Account(models.Model):

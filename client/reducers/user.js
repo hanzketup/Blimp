@@ -1,5 +1,5 @@
 let init = {
-  authenticated: false,
+  authenticated: false, // TODO not used
   me: {},
   position: {latitude: 0, longitude: 0},
   last_sig_pos: null,
@@ -15,6 +15,12 @@ export default (state = init, action) => {
     case 'SET_ME':
       return {...state, me: action.payload}
 
+    case 'SET_USERNAME':
+      return {
+        ...state,
+        me: {...state.me, username: action.payload}
+      }
+
     case 'SET_USER_POSITION':
       return {...state, position: action.payload}
 
@@ -23,6 +29,12 @@ export default (state = init, action) => {
 
     case 'TOGGLE_USER_FOLLOW':
       return {...state, follow: typeof (action.follow) === 'boolean' ? action.payload : !state.follow}
+
+    case 'APPEND_COINS':
+      return {
+        ...state,
+        me: {...state.me, coins: (state.me.coins + action.payload)}
+      }
 
     default:
       return state

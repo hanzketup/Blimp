@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, Alert, Image, StyleSheet } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { LinearGradient } from 'expo'
+import { LinearGradient, Facebook } from 'expo'
 
 import * as userActions from '../actions/user'
 import FancyTitle from '../containers/FancyTitle'
@@ -35,12 +35,10 @@ class AuthControl extends Component {
             color={'#d85b4b'}
           />
           <AuthButton
-            onPress={() => Facebook.logInWithReadPermissionsAsync('257885001592015', {
-              permissions: ['public_profile', 'email']
-            }).then(data => {
-              console.log(data)
-              this.props.navigation.navigate('Main')
-            })}
+            onPress={
+              () => this.props.actions.authWithFacebook()
+              .then(resp => resp.isNewUser ? this.props.navigation.navigate('AuthComplete') : this.props.navigation.navigate('Permissions'))
+            }
             style={style.button}
             title={'Sign in with Facebook'}
             icon={'facebook-f'}

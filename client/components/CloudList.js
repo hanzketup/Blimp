@@ -10,8 +10,19 @@ import Fade from '../components/Fade'
 class CloudList extends Component {
   constructor (props) {
     super(props)
+    this.state = {shouldScroll: false}
     this.panelHeight = 200
     this.minHeight = 145
+  }
+
+  shouldComponentUpdate (nextProps, nextState) {
+    if (nextProps.open && !this.props.open) {
+      this._panel.transitionTo({toValue: 350})
+    }
+    if (!nextProps.open && this.props.open) {
+      this._panel.transitionTo({toValue: this.minHeight})
+    }
+    return true
   }
 
   shouldCollapseOrOpen (position) {
@@ -23,14 +34,11 @@ class CloudList extends Component {
     }
   }
 
-  shouldComponentUpdate (nextProps, nextState) {
-    if (nextProps.open && !this.props.open) {
-      this._panel.transitionTo({toValue: 350})
-    }
-    if (!nextProps.open && this.props.open) {
-      this._panel.transitionTo({toValue: this.minHeight})
-    }
-    return true
+  handleScroll (event) { event.nativeEvent.contentOffset.y === 0 && this.setState({shouldScroll: false}) }
+
+  shouldScrollHandler (position) {
+    position >= Dimensions.get('window').height && this.setState({shouldScroll: true})
+    position < Dimensions.get('window').height && this.setState({shouldScroll: false})
   }
 
   setPanelHeight (cw, ch) {
@@ -51,8 +59,9 @@ class CloudList extends Component {
           startCollapsed visible
           ref={r => this._panel = r}
           showBackdrop={false}
-          allowDragging={this.props.nearbyCount > 0 ? true : false}
+          allowDragging={this.props.nearbyCount > 0 && !this.state.shouldScroll}
           draggableRange={{top: this.panelHeight, bottom: this.minHeight}}
+          onDrag={this.shouldScrollHandler.bind(this)}
           onDragEnd={this.shouldCollapseOrOpen.bind(this)}
           onRequestClose={this.props.closeAction}>
 
@@ -69,7 +78,10 @@ class CloudList extends Component {
 
             <LinearGradient style={style.inner} colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.3)', 'rgba(0, 0, 0, 0.3)', 'rgba(0, 0, 0, 0.4)']}>
 
-              <ScrollView scrollEnabled={false} onContentSizeChange={this.setPanelHeight.bind(this)} style={style.scroller}>
+              <ScrollView onScroll={this.handleScroll.bind(this)}
+                scrollEnabled={this.state.shouldScroll}
+                onContentSizeChange={this.setPanelHeight.bind(this)}
+                style={style.scroller}>
                 {this.props.children}
               </ScrollView>
 
@@ -100,7 +112,8 @@ const style = StyleSheet.create({
 
   },
   inner: {
-    flex: 1
+    flex: 1,
+    paddingBottom: 40
   },
   scroller: {
     position: 'relative',

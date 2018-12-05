@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import { View, StatusBar } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { MapView, Permissions, Audio } from 'expo'
+import { Permissions } from 'expo'
 
 import * as cloudAction from '../actions/clouds'
 import MapCanvas from '../components/MapCanvas'
 import CloudMarker from '../components/CloudMarker'
+import MapCoin from '../components/MapCoin'
 
 import UserMarker from '../containers/UserMarker'
 import MapInterface from '../containers/MapInterface'
@@ -29,13 +30,18 @@ class MainMap extends Component {
 
           {this.props.state.clouds.map(cld =>
             <CloudMarker
-              key={cld.id}
+              key={1 + cld.id}
               coords={cld.position}
               type={cld.type}
-              onPress={() => {
-                Audio.Sound.createAsync(require('../assets/sounds/plop.mp3'), { shouldPlay: true })
-                this.props.actions.setHighlightedAndOpen(cld.id)
-              }}
+              onPress={() => this.props.actions.setHighlightedAndOpen(cld.id)}
+            />
+          )}
+
+          {this.props.state.coins.map(cn =>
+            <MapCoin
+              key={2 + cn.id}
+              coords={cn.position}
+              onPress={() => null}
             />
           )}
 
@@ -56,6 +62,7 @@ const mapStateToProps = state => ({
   state: {
     ...state.user,
     ...state.clouds,
+    ...state.coins,
     ...state.ui
   }
 })

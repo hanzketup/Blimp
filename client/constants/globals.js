@@ -7,4 +7,5 @@ export const required_permissions = [
   Permissions.NOTIFICATIONS
 ]
 
-export const sig_pos_distance = 2
+export const sig_pos_distance = 5
+export const coin_pickup_distance = 8
