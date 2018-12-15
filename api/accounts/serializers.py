@@ -1,8 +1,7 @@
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
-from django.utils.translation import ugettext as _
+from general.wordFilterValidator import word_filter_validator
 from .models import Account, Level
-from general.models import Wordfilter
 
 
 class LevelSerializer(serializers.ModelSerializer):
@@ -20,7 +19,10 @@ class AccountSerializer(serializers.ModelSerializer):
 
 
 class CompleteSerializer(serializers.Serializer):
-    username = serializers.CharField(max_length=40, validators=[UniqueValidator(queryset=Account.objects.all())])
+    username = serializers.CharField(max_length=40, validators=[
+        UniqueValidator(queryset=Account.objects.all()),
+        word_filter_validator
+    ])
 
     def update(self, instance, validated_data):
         instance.username = validated_data['username']
@@ -29,13 +31,3 @@ class CompleteSerializer(serializers.Serializer):
         instance.signup_complete = True
         instance.save()
         return instance
-
-    def validate(self, data):
-
-        if Account.objects.filter(username=data['username']).exists():
-            raise serializers.ValidationError(_('Username already exists.'))
-
-        if Wordfilter.objects.filter(word__icontains=data['username']).exists():
-            raise serializers.ValidationError(_('Username not allowed.'))
-
-        return data

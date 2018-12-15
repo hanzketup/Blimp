@@ -1,4 +1,5 @@
 import os
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -109,6 +110,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
+LANGUAGES = [
+    ('en', _('English')),
+    ('sv', _('Swedish'))
+]
+
+LOCALE_PATHS = ['/code/locale']
+
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
@@ -116,7 +124,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Django REST setup
 REST_FRAMEWORK = {

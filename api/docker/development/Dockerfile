@@ -3,8 +3,10 @@ FROM python:3.6
 ADD . /code
 WORKDIR /code
 
-RUN apt-get update
-RUN apt-get upgrade -y
+
+
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get update && apt-get install -y gettext libgettextpo-dev
 
 RUN echo deb http://ftp.uk.debian.org/debian unstable main contrib non-free >> /etc/apt/sources.list
 RUN apt-get update

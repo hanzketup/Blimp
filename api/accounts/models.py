@@ -2,6 +2,7 @@ from django.contrib.gis.db import models
 from django.contrib.auth.models import User
 from django.contrib.gis.geos import Point
 
+
 class Level(models.Model):
 
     id = models.IntegerField(primary_key=True)
@@ -19,6 +20,7 @@ class Account(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     username = models.CharField(max_length=40, blank=True)
     email = models.EmailField()
+    age = models.DateField(null=True, blank=True)
 
     google_uid = models.CharField(max_length=200, blank=True)
     google_token = models.CharField(max_length=2000, blank=True)
@@ -29,6 +31,7 @@ class Account(models.Model):
 
     position = models.PointField(srid=4326, null=True, blank=True)
     position_timestamp = models.DateTimeField(null=True, blank=True)
+    position_history = models.ManyToManyField('accounts.HistoricPosition', blank=True)
 
     avatar = models.IntegerField(default=0)
     coins = models.IntegerField(default=100)
@@ -41,3 +44,10 @@ class Account(models.Model):
     def __str__(self):
         return str(self.username) + " | " + str(self.email)
 
+
+class HistoricPosition(models.Model):
+    timestamp = models.DateTimeField(auto_now_add=True)
+    position = models.PointField(srid=4326)
+
+    speed = models.IntegerField(blank=True, null=True)
+    accuracy = models.IntegerField(blank=True, null=True)
