@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Cloud, TYPE_CHOICES
 from rest_framework_gis.serializers import GeometryField
 
+from general.wordFilterValidator import word_filter_validator
 from accounts.serializers import AccountSerializer
 from .models import Cloud, Vote, Report
 
@@ -25,9 +26,15 @@ class CloudSerializer(serializers.ModelSerializer):
 
     type = serializers.ChoiceField(choices=TYPE_CHOICES)
     position = GeometryField()
-    body = serializers.CharField(max_length=400)
+    body = serializers.CharField(max_length=400, validators=[word_filter_validator])
 
-    code = serializers.CharField(required=False, allow_null=True, allow_blank=True, max_length=20)
+    code = serializers.CharField(
+                required=False,
+                allow_null=True,
+                allow_blank=True,
+                max_length=20,
+                validators=[word_filter_validator]
+    )
     stars = serializers.IntegerField(required=False, allow_null=True)
     expiry = serializers.IntegerField(required=False, allow_null=True)
 
