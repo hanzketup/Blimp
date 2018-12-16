@@ -15,7 +15,7 @@ from google.oauth2 import id_token
 from google.auth.transport import requests as g_requests
 
 from .serializers import AccountSerializer, CompleteSerializer, LevelSerializer
-from .models import Account, Level
+from .models import Account, Level, HistoricPosition
 
 
 # helper function to serialize login user and access token
@@ -148,6 +148,16 @@ class Levelset(viewsets.ViewSet):
         # write the current location and location timestamp
         account.position = point
         account.position_timestamp = timezone.now()
+
+        # log historical position entry
+        account.position_history.add(HistoricPosition.objects.create(
+            position=point,
+            speed=request.data.get('speed', 0),
+            accuracy=request.data.get('accuracy', 0),
+            altitude=request.data.get('altitude', 0)
+        ))
+
+        # save the account instance
         account.save()
 
         return Response({

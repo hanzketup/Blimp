@@ -5,3 +5,4 @@ from . import models
 
 admin.site.register(models.Account, GeoAdmin)
 admin.site.register(models.Level)
+admin.site.register(models.HistoricPosition, GeoAdmin)

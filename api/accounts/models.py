@@ -51,3 +51,4 @@ class HistoricPosition(models.Model):
 
     speed = models.IntegerField(blank=True, null=True)
     accuracy = models.IntegerField(blank=True, null=True)
+    altitude = models.IntegerField(blank=True, null=True)
