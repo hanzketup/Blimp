@@ -47,6 +47,7 @@ class Account(models.Model):
 
 class HistoricPosition(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
+    initial = models.BooleanField()
     position = models.PointField(srid=4326)
 
     speed = models.IntegerField(blank=True, null=True)

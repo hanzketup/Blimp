@@ -150,12 +150,15 @@ class Levelset(viewsets.ViewSet):
         account.position_timestamp = timezone.now()
 
         # log historical position entry
-        account.position_history.add(HistoricPosition.objects.create(
-            position=point,
-            speed=request.data.get('speed', 0),
-            accuracy=request.data.get('accuracy', 0),
-            altitude=request.data.get('altitude', 0)
-        ))
+        account.position_history.add(
+            HistoricPosition.objects.create(
+                position=point,
+                initial=request.data.get('initial', False),
+                speed=request.data.get('speed', 0),
+                accuracy=request.data.get('accuracy', 0),
+                altitude=request.data.get('altitude', 0)
+            )
+        )
 
         # save the account instance
         account.save()
