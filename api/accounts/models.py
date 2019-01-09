@@ -21,6 +21,7 @@ class Account(models.Model):
     username = models.CharField(max_length=40, blank=True)
     email = models.EmailField()
     age = models.DateField(null=True, blank=True)
+    is_moderator = models.BooleanField(default=False)
 
     google_uid = models.CharField(max_length=200, blank=True)
     google_token = models.CharField(max_length=2000, blank=True)

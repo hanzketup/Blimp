@@ -42,6 +42,19 @@ class Accountset(viewsets.ViewSet):
             return Response(status.HTTP_401_UNAUTHORIZED)
 
     @action(detail=False, methods=['post'])
+    def register_notification_token(self, request):
+        queryset = Account.objects.filter(user__pk=request.user.pk)
+
+        if queryset.exists():
+            serializer = AccountSerializer(queryset[0], data=request.data, partial=True)
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            return Response(status.HTTP_200_OK)
+
+        else:
+            return Response(status.HTTP_401_UNAUTHORIZED)
+
+    @action(detail=False, methods=['post'])
     def complete_signup(self, request):
         queryset = Account.objects.filter(user__pk=request.user.pk)
 

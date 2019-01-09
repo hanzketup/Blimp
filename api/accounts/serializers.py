@@ -12,10 +12,11 @@ class LevelSerializer(serializers.ModelSerializer):
 
 class AccountSerializer(serializers.ModelSerializer):
     level = LevelSerializer(many=False, read_only=True)
+    notification_token = serializers.CharField(max_length=100, write_only=True)
 
     class Meta:
         model = Account
-        fields = ('id', 'username', 'avatar', 'coins', 'level', 'distance_traveled')
+        fields = ('id', 'username', 'is_moderator', 'avatar', 'coins', 'level', 'distance_traveled', 'notification_token')
 
 
 class CompleteSerializer(serializers.Serializer):
@@ -31,3 +32,4 @@ class CompleteSerializer(serializers.Serializer):
         instance.signup_complete = True
         instance.save()
         return instance
+
