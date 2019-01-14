@@ -13,7 +13,7 @@ class UserMarker extends Component {
 
   componentDidMount () {
     console.log('__ usermarker mounted __')
-    Location.watchPositionAsync({enableHighAccuracy: true, distanceInterval: 1}, async location => {
+    Location.watchPositionAsync({accuracy: 5, distanceInterval: 1}, async location => {
       console.log('####  POSITION UPDATED ####')
       console.log(location.coords.accuracy)
       // runs on every position change

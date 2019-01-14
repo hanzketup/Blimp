@@ -11,14 +11,13 @@ import RoundTopButton from '../components/RoundTopButton'
 import Tickers from '../components/Tickers'
 
 class MapInterface extends Component {
-
   render () {
     return (this.props.state.show_map_interface &&
-      <View style={style.container}>
+      <View style={style.container} pointerEvents='box-none'>
         <Tickers
           coins={this.props.state.me.coins}
-          traveled={this.props.state.me.distance_traveled || 0}
-          goal={23/* this.props.state.me.level.goal */}
+          traveled={this.props.state.me.distance_traveled && (this.props.state.me.distance_traveled / 1000).toFixed(1)}
+          goal={this.props.state.me.level && (this.props.state.me.level.goal / 1000).toFixed(1)}
          />
 
         <View style={style.topButtons}>
@@ -32,13 +31,13 @@ class MapInterface extends Component {
           </RoundTopButton>
 
           <RoundTopButton color={'#e17055'} borderColor={'#fab1a0'} onPress={() => null}>
-            <Icon style={style.icon} name={'compass'} color='#fff5ea' type='light' size={26} />
+            <Icon style={style.icon} name={'satellite'} color='#fff5ea' type='light' size={23} />
           </RoundTopButton>
 
         </View>
 
-        {!this.props.state.feed_open && <CanvasButton onPress={this.props.actions.toggleEditor} placement='left' icon='plus-circle' />}
-        {!this.props.state.feed_open && <CanvasButton onPress={this.props.navigation.toggleDrawer} placement='right' icon='user-circle' />}
+        {!this.props.state.feed_open && <CanvasButton onPress={this.props.navigation.toggleDrawer} placement='left' icon='user-circle' />}
+        {!this.props.state.feed_open && <CanvasButton onPress={this.props.actions.toggleEditor} placement='right' icon='plus-circle' />}
 
       </View>
     )

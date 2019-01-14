@@ -21,13 +21,17 @@ class Root extends Component {
     let tokenValue = await AsyncStorage.getItem('authToken')
     if (!tokenValue) { NavigationService.navigate('Auth') }
 
-    // let token = await Notifications.getExpoPushTokenAsync()
-
-    // preload images
-    await Asset.loadAsync([
-      ...Object.keys(cloudConstants).map(x => cloudConstants[x].icon),
-      ...avatarIcons
-    ])
+    // dispatch notification token once
+    let hsn_token = await AsyncStorage.getItem('HasSentNotificationToken')
+    if (hsn_token !== 'done') {
+      let token = await Notifications.getExpoPushTokenAsync()
+      await fetcher(
+        '/api/accounts/register_notification_token/',
+        'POST',
+        {notification_token: token}
+      )
+      await AsyncStorage.setItem('HasSentNotificationToken', 'done')
+    }
 
     // load in fonts
     await Font.loadAsync({

@@ -9,6 +9,8 @@ import Permissions from './screens/Permissions'
 import Map from './screens/Map'
 import Store from './screens/Store'
 import Editor from './screens/Editor'
+import Settings from './screens/Settings'
+import RadarModeration from './screens/RadarModeration'
 
 const DrawerNav = createDrawerNavigator({
   Map: {
@@ -18,7 +20,7 @@ const DrawerNav = createDrawerNavigator({
     screen: createStackNavigator({Store: {screen: Store}})
   },
   Settings: {
-    screen: createStackNavigator({Settings: {screen: Store}})
+    screen: createStackNavigator({Settings: {screen: Settings}})
   }
 }, {
   initialRouteName: 'Map',
@@ -38,6 +40,9 @@ export default createAppContainer(createSwitchNavigator({
   },
   Permissions: {
     screen: Permissions
+  },
+  RadarModeration: {
+    screen: createStackNavigator({RadarModeration: {screen: RadarModeration}})
   }
 }, {
   initialRouteName: 'Main'

@@ -26,7 +26,9 @@ class CustomDrawer extends Component {
 
           <View style={style.ticker}>
             <Image style={{height: 25, width: 25, marginRight: 'auto'}} resizeMode='contain' source={require('../assets/icons/level.png')} />
-            <Text style={style.tickerValue}>23/48km</Text>
+            <Text style={style.tickerValue}>
+              {(this.props.state.me.distance_traveled / 1000).toFixed(1)}km
+            </Text>
           </View>
 
         </View>
@@ -74,7 +76,7 @@ const style = StyleSheet.create({
     alignItems: 'center'
   },
   img: {
-    width: '45%',
+    width: '50%',
     transform: [{rotate: '-10deg'}]
   },
   username: {
@@ -85,8 +87,8 @@ const style = StyleSheet.create({
     textShadowOffset: {width: -1, height: 1},
     textShadowRadius: 3,
     fontWeight: 'normal',
-    marginTop: 0,
-    marginBottom: -12
+    marginTop: -5,
+    marginBottom: -5
   },
   ticker: {
     alignSelf: 'center',

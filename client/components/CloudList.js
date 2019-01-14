@@ -10,7 +10,10 @@ import Fade from '../components/Fade'
 class CloudList extends Component {
   constructor (props) {
     super(props)
-    this.state = {shouldScroll: false}
+    this.state = {
+      shouldScroll: false,
+      hasScrolled: false
+    }
     this.panelHeight = 200
     this.minHeight = 145
   }
@@ -34,11 +37,18 @@ class CloudList extends Component {
     }
   }
 
-  handleScroll (event) { event.nativeEvent.contentOffset.y === 0 && this.setState({shouldScroll: false}) }
+  handleScroll (event) {
+    if (event.nativeEvent.contentOffset.y === 0) {
+      this.setState({shouldScroll: false, hasScrolled: false})
+    } else {
+      this.setState({hasScrolled: true})
+    }
+  }
 
   shouldScrollHandler (position) {
-    position >= Dimensions.get('window').height && this.setState({shouldScroll: true})
-    position < Dimensions.get('window').height && this.setState({shouldScroll: false})
+    let device_height = Dimensions.get('window').height
+    if (position >= device_height) { this.setState({shouldScroll: true}) }
+    if (position < device_height) { this.setState({shouldScroll: false}) }
   }
 
   setPanelHeight (cw, ch) {
@@ -59,20 +69,20 @@ class CloudList extends Component {
           startCollapsed visible
           ref={r => this._panel = r}
           showBackdrop={false}
-          allowDragging={this.props.nearbyCount > 0 && !this.state.shouldScroll}
+          allowDragging={this.props.nearbyCount > 0 && (!this.state.shouldScroll || !this.state.hasScrolled)}
           draggableRange={{top: this.panelHeight, bottom: this.minHeight}}
           onDrag={this.shouldScrollHandler.bind(this)}
           onDragEnd={this.shouldCollapseOrOpen.bind(this)}
           onRequestClose={this.props.closeAction}>
 
-          <View style={style.inner}>
+          <View style={style.inner} pointerEvents='box-none'>
 
             <View pointerEvents='box-none' style={style.nearby}>
               <Icon
                 style={style.openArrow}
                 onPress={this.props.openAction}
                 name='angle-double-up'
-                color={(!this.props.open && this.props.nearbyCount != 0) ? 'rgba(	243, 166, 131, 0.6)' : 'rgba(0, 0, 0, 0)'} type='regular' size={32} />
+                color={(!this.props.open && this.props.nearbyCount != 0) ? 'rgba(	243, 166, 131, 0.4)' : 'rgba(0, 0, 0, 0)'} type='regular' size={32} />
               <Text style={style.nearbyText}>{this.props.nearbyCount} Nearby</Text>
             </View>
 
@@ -144,7 +154,7 @@ const style = StyleSheet.create({
     paddingBottom: 4,
     borderRadius: 6,
     backgroundColor: '#fff',
-    marginBottom: 12,
+    marginBottom: 15,
     zIndex: 40,
 
     shadowColor: '#000',

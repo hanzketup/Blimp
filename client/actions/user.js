@@ -35,23 +35,31 @@ export const completeSignup = (username) => {
 
 export const authWithGoogle = () => {
   return async dispatch => {
-    let auth_request = await Google.logInAsync({
-      androidClientId: '140145899902-dc5v45hv4h2856n9p7m70r8ubf7pajum.apps.googleusercontent.com',
-      iosClientId: '140145899902-j1ie0ck7f682d3iqh4g50so7f288dks0.apps.googleusercontent.com'
-    }).catch(Promise.reject(0))
+    let auth_request = null
+    try {
+      auth_request = await Google.logInAsync({
+        behavior: 'web',
+        androidClientId: '140145899902-dc5v45hv4h2856n9p7m70r8ubf7pajum.apps.googleusercontent.com',
+        iosClientId: '140145899902-j1ie0ck7f682d3iqh4g50so7f288dks0.apps.googleusercontent.com'
+      })
+    } catch (err) {
+      throw new Error('auth_request failed: ' + err)
+    }
 
-    if (auth_request.type !== 'success') { /* TODO show auth error to user */ }
+    console.log(auth_request)
+    if (auth_request.type !== 'success' || !auth_request.idToken) {
+      throw new Error('auth_request failed')
+    }
 
     let verify_request = await fetcher(
       '/api/accounts/auth_google/',
       'POST',
-      {
-        token: auth_request.idToken
-      },
+      {token: auth_request.idToken},
       {unauthorized: true}
     )
 
     if (verify_request.successful) {
+      console.log(verify_request.json.token)
       // dump token to storage
       await AsyncStorage.setItem('authToken', verify_request.json.token)
       // populate state with auth data TODO

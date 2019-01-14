@@ -13,12 +13,9 @@ import UserMarker from '../containers/UserMarker'
 import MapInterface from '../containers/MapInterface'
 import Editor from '../containers/Editor'
 import CloudFeed from '../containers/CloudFeed'
+import RadarModal from '../containers/RadarModal'
 
 class MainMap extends Component {
-
-  componentDidUpdate () {
-    console.log('## MAINMAP UPDATED ##')
-  }
 
   render () {
     return (
@@ -33,6 +30,7 @@ class MainMap extends Component {
               key={1 + cld.id}
               coords={cld.position}
               type={cld.type}
+              votes={cld.votes.length}
               onPress={() => this.props.actions.setHighlightedAndOpen(cld.id)}
             />
           )}
@@ -51,6 +49,8 @@ class MainMap extends Component {
         <CloudFeed />
         <Editor />
         <MapInterface navigation={this.props.navigation} />
+
+        <RadarModal />
 
       </View>
     )

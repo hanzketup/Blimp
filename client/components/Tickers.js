@@ -21,7 +21,7 @@ export default props =>
       style={[style.button, {backgroundColor: '#574b90', borderColor: '#786fa6'}]} >
       <View style={style.wrapper}>
         <Image style={{height: 23, width: 23, marginRight: 'auto'}} resizeMode='contain' source={require('../assets/icons/level.png')} />
-        <Text style={style.count}>{props.traveled}/{props.goal}km</Text>
+        <Text style={style.count}>{props.traveled}km</Text>
       </View>
     </TouchableHighlight>
 
