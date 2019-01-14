@@ -9,18 +9,20 @@ class RadarIssue(models.Model):
     body = models.TextField(null=True, blank=True)
 
     position = models.PointField(srid=4326, blank=True)
-    do_notify = models.BooleanField(default=True)
     radius = models.IntegerField(null=True, blank=True)
+    do_notify = models.BooleanField(default=True)
+    end_date = models.DateTimeField()
 
-    issued_by = models.ForeignKey('accounts.account', on_delete=models.SET_NULL)
+    issued_by = models.ForeignKey('accounts.account', null=True, on_delete=models.SET_NULL)
     issued_for = models.CharField(max_length=200, default='')
 
     hits = models.ManyToManyField('business.RadarHit')
 
 
 class RadarHit(models.Model):
-    account = models.ForeignKey('accounts.account', on_delete=models.SET_NULL)
+    account = models.ForeignKey('accounts.account', on_delete=models.CASCADE)
     notified = models.BooleanField(default=False)
 
     click_through = models.BooleanField(default=False)
     click_through_timestamp = models.DateTimeField(null=True, blank=True)
+    did_complete = models.BooleanField(default=False)

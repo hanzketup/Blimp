@@ -32,7 +32,7 @@ class Account(models.Model):
 
     position = models.PointField(srid=4326, null=True, blank=True)
     position_timestamp = models.DateTimeField(null=True, blank=True)
-    position_history = models.ManyToManyField('accounts.HistoricPosition', blank=True)
+    position_history = models.ManyToManyField('accounts.HistoricPosition', blank=True, related_name="account")
 
     avatar = models.IntegerField(default=0)
     coins = models.IntegerField(default=100)

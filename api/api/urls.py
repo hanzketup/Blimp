@@ -7,12 +7,14 @@ from rest_framework import routers
 from clouds import views as cloud_views
 from accounts import views as accounts_views
 from general import views as general_views
+from business import views as business_views
 
 router = routers.DefaultRouter()
 router.register(r'clouds', cloud_views.Cloudset, basename='clouds')
 router.register(r'accounts', accounts_views.Accountset, basename='accounts')
 router.register(r'levels', accounts_views.Levelset, basename='levels')
 router.register(r'coins', general_views.Coinset, basename='coins')
+router.register(r'radar', business_views.Radarset, basename='radar')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -1,3 +1,9 @@
-from django.contrib import admin
+from django.contrib.gis import admin
 
-# Register your models here.
+from general.GeoAdmin import GeoAdmin
+
+
+from . import models
+
+admin.site.register(models.RadarIssue, GeoAdmin)
+admin.site.register(models.RadarHit)
