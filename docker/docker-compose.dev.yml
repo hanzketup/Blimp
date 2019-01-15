@@ -16,10 +16,8 @@ services:
     volumes:
       - ../site:/code
 
-  celery:
+  worker:
     build:
       dockerfile: docker/development/Dockerfile
-
-  celery-beat:
-    build:
-      dockerfile: docker/development/Dockerfile
+    volumes:
+      - ../api:/code

@@ -15,11 +15,15 @@ services:
       - ./media:/media
       - ./config:/code/config
       - site_build:/code/site_build
+    links:
+      - broker
     env_file:
       - ./config/keys.env
+    environment:
+        - CELERY_BROKER=amqp://guest:guest@broker:5672
     depends_on:
       - postgres
-      - redis
+      - broker
       - site
 
   site:
@@ -40,30 +44,25 @@ services:
     env_file:
       - ./config/keys.env
 
-  redis:
-    image: "redis:alpine"
+  broker:
+    hostname: broker
+    image: rabbitmq:latest
+    environment:
+        - RABBITMQ_DEFAULT_USER=admin
+        - RABBITMQ_DEFAULT_PASS=mypass
+    ports:
+      - 5672:5672
 
-  celery:
+  worker:
     build:
       context: ../api
       dockerfile: docker/production/Dockerfile
+    restart: "no"
     command: celery -A api worker -l info
-    env_file:
-      - ./config/keys.env
+    links:
+      - broker
     depends_on:
-      - postgres
-      - redis
-
-  celery-beat:
-    build:
-      context: ../api
-      dockerfile: docker/production/Dockerfile
-    command: celery -A api beat -l info
-    env_file:
-      - ./config/keys.env
-    depends_on:
-      - postgres
-      - redis
+      - broker
 
 volumes:
     assets:
