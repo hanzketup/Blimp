@@ -2,7 +2,7 @@ from django.contrib.gis.db import models
 
 
 class RadarIssue(models.Model):
-    timestamp = models.TimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(null=True, blank=True)
     title = models.CharField(max_length=80, default='')
     short = models.CharField(max_length=37, default='')

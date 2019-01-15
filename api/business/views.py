@@ -7,12 +7,11 @@ from rest_framework.permissions import IsAuthenticated
 from django.contrib.gis.measure import D
 from django.contrib.gis.geos import Point
 
-Account = apps.get_model('accounts', 'Account')
 from .tasks import primary_issue_task
 from .models import RadarIssue, RadarHit
 from .serializers import RadarIssueSerializer
 
-CLOUD_POLLING_DISTANCE = 100
+Account = apps.get_model('accounts', 'Account')
 
 
 class Radarset(viewsets.ViewSet):
@@ -27,6 +26,7 @@ class Radarset(viewsets.ViewSet):
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
-        primary_issue_task.delay(serializer.data)
+        res = primary_issue_task(serializer.data)
+        print(res)
 
         return Response(serializer.data)

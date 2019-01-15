@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
             name='RadarIssue',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('timestamp', models.TimeField(auto_now_add=True)),
+                ('timestamp', models.DateTimeField(auto_now_add=True)),
                 ('image', models.ImageField(blank=True, null=True, upload_to='')),
                 ('title', models.CharField(default='', max_length=80)),
                 ('short', models.CharField(default='', max_length=37)),

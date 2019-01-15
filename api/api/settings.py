@@ -153,11 +153,7 @@ STATICFILES_DIRS = [
 ]
 
 # Celery setup
-CELERY_BROKER_URL = 'redis://redis:6379'
-CELERY_RESULT_BACKEND = 'redis://redis:6379'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
+CELERY_BROKER_URL = 'amqp://admin:mypass@broker:5672'
 
 LOGGING = {
     'version': 1,
