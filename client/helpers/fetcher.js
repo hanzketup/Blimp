@@ -35,8 +35,16 @@ export default async (slug, method = 'GET', body = null, options = {}) => {
     // Alert.alert('Server error', 'Please try again later')
   }
 
+  json_response = null
+  try {
+    json_response = await response.json()
+    console.log(json_response)
+  } catch (err) {
+    console.log(`fetch error: ${err}`)
+  }
+
   return {
     successful: response.ok,
-    json: await response.json()
+    json: json_response || {}
   }
 }

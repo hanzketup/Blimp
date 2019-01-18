@@ -76,7 +76,7 @@ export const authWithFacebook = () => {
       permissions: ['public_profile', 'email']
     })
 
-    if (auth_request.type !== 'success') { /* TODO show auth error to user */ }
+    if (auth_request.type !== 'success') { return 0 /* TODO show auth error to user */ }
 
     console.log(auth_request)
     let verify_request = await fetcher(
