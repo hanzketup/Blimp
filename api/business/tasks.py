@@ -12,9 +12,11 @@ from exponent_server_sdk import PushMessage
 def primary_issue_task(issue):
     Account = apps.get_model('accounts', 'Account')
     HistoricPosition = apps.get_model('accounts', 'HistoricPosition')
+    RadarIssue = apps.get_model('business', 'RadarIssue')
     RadarHit = apps.get_model('business', 'RadarHit')
 
     point = Point(issue['position']['coordinates'], srid=4326)
+    issue_acutal = RadarIssue.objects.get(pk=issue.pk)
     affected_users = set()
 
     queryset = HistoricPosition.objects.filter(
@@ -33,8 +35,8 @@ def primary_issue_task(issue):
             account=user
         )
 
-        issue.hits.add(new_hit)
-        issue.save()
+        issue_acutal.hits.add(new_hit)
+        issue_acutal.save()
 
         # If the issue includes sending push notifications
         if issue['do_notify']:
