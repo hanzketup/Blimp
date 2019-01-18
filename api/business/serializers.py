@@ -7,8 +7,7 @@ from .models import RadarIssue, RadarHit
 
 
 class RadarIssueSerializer(serializers.ModelSerializer):
-    pk = serializers.Field()
-    
+
     class Meta:
         model = RadarIssue
         exclude = ('issued_by', 'issued_for', 'hits')

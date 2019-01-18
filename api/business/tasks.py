@@ -16,7 +16,7 @@ def primary_issue_task(issue):
     RadarHit = apps.get_model('business', 'RadarHit')
 
     point = Point(issue['position']['coordinates'], srid=4326)
-    issue_acutal = RadarIssue.objects.get(pk=issue.pk)
+    issue_acutal = RadarIssue.objects.get(pk=issue.id)
     affected_users = set()
 
     queryset = HistoricPosition.objects.filter(
