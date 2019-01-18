@@ -4,6 +4,7 @@ from rest_framework.decorators import action
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
+from api.ModeratorPermission import ModeratorPermission
 from django.contrib.gis.measure import D
 from django.contrib.gis.geos import Point
 
@@ -15,7 +16,7 @@ Account = apps.get_model('accounts', 'Account')
 
 
 class Radarset(viewsets.ViewSet):
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (ModeratorPermission, )
 
     def list(self):
         pass

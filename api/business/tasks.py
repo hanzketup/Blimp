@@ -5,13 +5,17 @@ from django.contrib.gis.measure import D
 from django.contrib.gis.geos import Point
 from datetime import datetime, timedelta
 
+from exponent_server_sdk import PushClient
+from exponent_server_sdk import PushMessage
 
 @shared_task
 def primary_issue_task(issue):
-    point = Point(issue['position']['coordinates'], srid=4326)
     Account = apps.get_model('accounts', 'Account')
     HistoricPosition = apps.get_model('accounts', 'HistoricPosition')
-    affected_user = set()
+    RadarHit = apps.get_model('business', 'RadarHit')
+
+    point = Point(issue['position']['coordinates'], srid=4326)
+    affected_users = set()
 
     queryset = HistoricPosition.objects.filter(
         position__distance_lte=(point, D(m=issue['radius'])),
@@ -20,9 +24,33 @@ def primary_issue_task(issue):
 
     # boil down the queryset to unique users
     for instance in queryset:
-        affected_user.add(instance.account.first())
+        affected_users.add(instance.account.first())
 
-    if issue['do_notify']:
-        pass
+    # Iterate over found users
+    for user in affected_users:
+        # create a RadarHit object for each user
+        new_hit = RadarHit.objects.create(
+            account=user
+        )
 
-    return affected_user
+        issue.hits.add(new_hit)
+        issue.save()
+
+        # If the issue includes sending push notifications
+        if issue['do_notify']:
+            # Make sure that the user has a expo notification token stored
+            if user.notification_token:
+                try:
+                    response = PushClient().publish(
+                        PushMessage(
+                            to=user.notification_token,
+                            title=issue['title'],
+                            body=issue['short'],
+                        ))
+                    new_hit.notified = response.ok
+                    print(response)
+                except:
+                    pass
+
+
+    return affected_users

@@ -11,6 +11,7 @@ class LevelSerializer(serializers.ModelSerializer):
 
 
 class AccountSerializer(serializers.ModelSerializer):
+    is_moderator = serializers.BooleanField(read_only=True)
     level = LevelSerializer(many=False, read_only=True)
     notification_token = serializers.CharField(max_length=100, write_only=True)
 
