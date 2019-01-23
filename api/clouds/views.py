@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.gis.measure import D
 from django.contrib.gis.geos import Point
+from datetime import datetime, timedelta
 
 from clouds.serializers import CloudSerializer, ReportSerializer, VoteSerializer
 from accounts.models import Account
@@ -25,9 +26,23 @@ class Cloudset(viewsets.ViewSet):
     @action(detail=False, methods=['post'])
     def nearby(self, request):
         point = Point(request.data['position']['coordinates'], srid=4326)
+        query_args = dict(
+            position__distance_lte=(point, D(m=CLOUD_POLLING_DISTANCE)),
+            visible=True,
+        )
 
         if point:
-            queryset = Cloud.objects.filter(position__distance_lte=(point, D(m=CLOUD_POLLING_DISTANCE)), visible=True)
+            queryset = Cloud.objects.filter(**query_args)
+
+            # toggle visible for expired countdown clouds
+            for i in queryset:
+                if i.expiry:
+                    if i.timestamp + timedelta(i.expiry) >= datetime.now():
+                        i.visible = False
+                        i.save()
+                        # reload the queryset if countdown was hidden
+                        queryset = Cloud.objects.filter(query_args)
+
             serializer = CloudSerializer(queryset, many=True)
             return Response(serializer.data)
 

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/clouds/views.py" line="15" />
+    <bookmark url="file://$PROJECT_DIR$/clouds/views.py" line="16" />
     <bookmark url="file://$PROJECT_DIR$/accounts/models.py" line="6" mnemonic="3" />
     <bookmark url="file://$PROJECT_DIR$/business/tasks.py" line="10" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e3e7c6a-15da-47d7-abdf-4bcf92ba9e04" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/business/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/business/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/AccountMiddleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/AccountMiddleware.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clouds/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/clouds/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,13 +42,45 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/business/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="761">
-              <caret line="55" column="14" lean-forward="true" selection-start-line="55" selection-start-column="14" selection-end-line="55" selection-end-column="14" />
+            <state relative-caret-position="198">
+              <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/accounts/AccountMiddleware.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="19" column="82" selection-start-line="19" selection-start-column="82" selection-end-line="19" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clouds/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="42" column="69" selection-start-line="42" selection-start-column="69" selection-end-line="42" selection-end-column="69" />
               <folding>
-                <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#0#35#0" expanded="true" />
+                <marker date="1548255722717" expanded="true" signature="861:867" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clouds/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="22" column="10" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="10" />
+              <folding>
+                <marker date="1543504622489" expanded="true" signature="190:191" ph="..." />
+                <marker date="1543504622489" expanded="true" signature="190:334" ph="..." />
               </folding>
             </state>
           </provider>
@@ -111,7 +144,6 @@
         <option value="$PROJECT_DIR$/general/admin.py" />
         <option value="$PROJECT_DIR$/clouds/admin.py" />
         <option value="$PROJECT_DIR$/general/views.py" />
-        <option value="$PROJECT_DIR$/clouds/views.py" />
         <option value="$PROJECT_DIR$/docker/production/Dockerfile" />
         <option value="$PROJECT_DIR$/general/wordFilterValidator.py" />
         <option value="$PROJECT_DIR$/clouds/serializers.py" />
@@ -127,11 +159,12 @@
         <option value="$PROJECT_DIR$/business/models.py" />
         <option value="$PROJECT_DIR$/api/ModeratorPermission.py" />
         <option value="$PROJECT_DIR$/accounts/serializers.py" />
-        <option value="$PROJECT_DIR$/accounts/AccountMiddleware.py" />
         <option value="$PROJECT_DIR$/api/settings.py" />
         <option value="$PROJECT_DIR$/business/serializers.py" />
         <option value="$PROJECT_DIR$/business/tasks.py" />
         <option value="$PROJECT_DIR$/business/views.py" />
+        <option value="$PROJECT_DIR$/clouds/views.py" />
+        <option value="$PROJECT_DIR$/accounts/AccountMiddleware.py" />
       </list>
     </option>
   </component>
@@ -245,7 +278,7 @@
     <frame x="1976" y="-4" width="1865" height="1085" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13043478" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13043478" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -375,17 +408,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clouds/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="55" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
-          <folding>
-            <marker date="1543504622489" expanded="true" signature="190:191" ph="..." />
-            <marker date="1543504622489" expanded="true" signature="190:334" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/clouds/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -452,27 +474,6 @@
     <entry file="file://$PROJECT_DIR$/business/migrations/0002_auto_20190115_1836.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/clouds/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="64" column="93" selection-start-line="64" selection-start-column="52" selection-end-line="64" selection-end-column="93" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1544031744155" expanded="true" signature="820:826" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/ModeratorPermission.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docker/production/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -484,13 +485,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/AccountMiddleware.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
@@ -561,13 +555,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/clouds/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="10" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="10" />
+          <folding>
+            <marker date="1543504622489" expanded="true" signature="190:191" ph="..." />
+            <marker date="1543504622489" expanded="true" signature="190:334" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clouds/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="42" column="69" selection-start-line="42" selection-start-column="69" selection-end-line="42" selection-end-column="69" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1548255722717" expanded="true" signature="861:867" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/ModeratorPermission.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="44" lean-forward="true" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/business/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="761">
-          <caret line="55" column="14" lean-forward="true" selection-start-line="55" selection-start-column="14" selection-end-line="55" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="198">
+          <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/AccountMiddleware.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="82" selection-start-line="19" selection-start-column="82" selection-end-line="19" selection-end-column="82" />
         </state>
       </provider>
     </entry>
