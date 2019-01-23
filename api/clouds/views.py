@@ -41,7 +41,7 @@ class Cloudset(viewsets.ViewSet):
                         i.visible = False
                         i.save()
                         # reload the queryset if countdown was hidden
-                        queryset = Cloud.objects.filter(query_args)
+                        queryset = Cloud.objects.filter(**query_args)
 
             serializer = CloudSerializer(queryset, many=True)
             return Response(serializer.data)

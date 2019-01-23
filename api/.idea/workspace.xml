@@ -7,7 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e3e7c6a-15da-47d7-abdf-4bcf92ba9e04" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/accounts/AccountMiddleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/AccountMiddleware.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clouds/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/clouds/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,7 +50,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/accounts/AccountMiddleware.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="342">
@@ -60,14 +59,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/clouds/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="42" column="69" selection-start-line="42" selection-start-column="69" selection-end-line="42" selection-end-column="69" />
+            <state relative-caret-position="558">
+              <caret line="43" column="68" selection-start-line="43" selection-start-column="68" selection-end-line="43" selection-end-column="68" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
-                <marker date="1548255722717" expanded="true" signature="861:867" ph="..." />
+                <marker date="1548256561448" expanded="true" signature="861:867" ph="..." />
               </folding>
             </state>
           </provider>
@@ -163,8 +162,8 @@
         <option value="$PROJECT_DIR$/business/serializers.py" />
         <option value="$PROJECT_DIR$/business/tasks.py" />
         <option value="$PROJECT_DIR$/business/views.py" />
-        <option value="$PROJECT_DIR$/clouds/views.py" />
         <option value="$PROJECT_DIR$/accounts/AccountMiddleware.py" />
+        <option value="$PROJECT_DIR$/clouds/views.py" />
       </list>
     </option>
   </component>
@@ -566,17 +565,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clouds/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="42" column="69" selection-start-line="42" selection-start-column="69" selection-end-line="42" selection-end-column="69" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1548255722717" expanded="true" signature="861:867" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/ModeratorPermission.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -598,6 +586,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="19" column="82" selection-start-line="19" selection-start-column="82" selection-end-line="19" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clouds/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="43" column="68" selection-start-line="43" selection-start-column="68" selection-end-line="43" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1548256561448" expanded="true" signature="861:867" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
