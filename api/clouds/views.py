@@ -39,7 +39,7 @@ class Cloudset(viewsets.ViewSet):
             # toggle visible for expired countdown clouds
             for i in queryset:
                 if i.expiry is not None:
-                    if i.timestamp + timedelta(i.expiry) >= timezone.now():
+                    if not i.timestamp + timedelta(seconds=i.expiry) >= timezone.now():
                         i.visible = False
                         i.save()
                         # reload the queryset if countdown was hidden
