@@ -22,7 +22,7 @@ HistoricPosition = apps.get_model('accounts', 'HistoricPosition')
 class Radarset(viewsets.ViewSet):
     permission_classes = (ModeratorPermission, )
 
-    def list(self):
+    def nearby(self):
         pass
 
     @action(detail=False, methods=['post'])
