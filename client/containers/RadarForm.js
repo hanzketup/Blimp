@@ -48,13 +48,23 @@ class RadarForm extends PureComponent {
           />
 
         </MapView.Animated>
+
         <ScrollView style={{flex: 1, width: '100%'}}>
+
+          <Text style={{fontSize: 20, textAlign: 'center', paddingTop: 10}}>Users in radius: {this.props.state.yield.toString()}</Text>
 
           <TextInput
             style={style.input}
             placeholder='radius (meter)'
             value={this.props.state.radius.toString()}
-            onChangeText={val => this.props.actions.changeRadius(parseInt(val) || 0)}
+            onChangeText={val => {
+              this.props.actions.changeRadius(parseInt(val) || 0)
+              this.props.actions.checkRadarYield(
+                this.props.state.pinPosition,
+                this.props.state.radius
+              )
+            }
+            }
         />
 
           <TextInput

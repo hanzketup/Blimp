@@ -8,7 +8,10 @@ let init = {
   short: '',
   body: '',
   position: '',
-  do_notify: true
+  do_notify: true,
+
+  yield: 0
+
 }
 
 export default (state = init, action) => {
@@ -37,6 +40,9 @@ export default (state = init, action) => {
 
     case 'TOGGLE_RADAR_FORM_DO_NOTIFY':
       return {...state, do_notify: typeof (action.payload) === 'boolean' ? action.payload : !state.show_radar_modal}
+
+    case 'SET_RADAR_FORM_YIELD':
+      return {...state, yield: action.payload}
 
     default:
       return state

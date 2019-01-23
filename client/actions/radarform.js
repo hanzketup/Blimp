@@ -1,3 +1,4 @@
+import fetcher from '../helpers/fetcher'
 import NavigationService from '../NavigationService'
 import * as radarActions from './radar'
 
@@ -35,5 +36,20 @@ export const tryRadar = (title, body) => {
     dispatch(radarActions.toggleRadarModal(true))
     dispatch(radarActions.setTitle(title))
     dispatch(radarActions.setBody(body))
+  }
+}
+
+export const checkRadarYield = (position, radius) => {
+  return async dispatch => {
+    let response = await fetcher(
+      '/api/business/check/',
+      'POST',
+      {
+        position: toGeoJson(position.coords),
+        radius: radius
+      }
+    )
+
+    dispatch({type: 'SET_RADAR_FORM_YIELD', payload: response.json.value})
   }
 }
