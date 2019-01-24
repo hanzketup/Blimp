@@ -147,7 +147,7 @@ class Levelset(viewsets.ViewSet):
             distance_between = int(account.position.distance(point) * 100000)
 
             # add the distance between prev point and second point if not initial
-            if not request.data.get('initial', False):
+            if not request.data.get('initial', False) or not request.data.get('background', False):
                 account.distance_traveled += distance_between
 
             # check if the user has moved over the goal meters
