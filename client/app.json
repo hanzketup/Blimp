@@ -26,6 +26,12 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.blimpuf.blimp",
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "location",
+          "fetch"
+        ]
+      },
       "config": {
         "googleMapsApiKey": "AIzaSyAQcFKeLl-WQ2-zDR-61G_WQ94Pmjx3Ibo"
       }

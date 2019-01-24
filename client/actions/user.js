@@ -46,7 +46,6 @@ export const authWithGoogle = () => {
       throw new Error('auth_request failed: ' + err)
     }
 
-    console.log(auth_request)
     if (auth_request.type !== 'success' || !auth_request.idToken) {
       throw new Error('auth_request failed')
     }
@@ -59,7 +58,6 @@ export const authWithGoogle = () => {
     )
 
     if (verify_request.successful) {
-      console.log(verify_request.json.token)
       // dump token to storage
       await AsyncStorage.setItem('authToken', verify_request.json.token)
       // populate state with auth data TODO
@@ -76,9 +74,10 @@ export const authWithFacebook = () => {
       permissions: ['public_profile', 'email']
     })
 
-    if (auth_request.type !== 'success') { return 0 /* TODO show auth error to user */ }
+    if (auth_request.type !== 'success') {
+      throw new Error('auth_request failed')
+    }
 
-    console.log(auth_request)
     let verify_request = await fetcher(
       '/api/accounts/auth_facebook/',
       'POST',

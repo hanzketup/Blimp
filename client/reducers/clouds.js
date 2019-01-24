@@ -10,7 +10,6 @@ export default (state = init, action) => {
       return {...state, selected_cloud: action.payload}
 
     case 'TOGGLE_FEED':
-      console.log(state.feed_open)
       return {...state, feed_open: typeof (action.payload) === 'boolean' ? action.payload : !state.feed_open}
 
     case 'ADD_CLOUDS':

@@ -63,13 +63,14 @@ const style = StyleSheet.create({
     alignItems: 'center'
   },
   count: {
-    height: '100%',
     color: '#fff5ea',
     fontWeight: '700',
-    fontSize: 18,
+    fontSize: 19,
     paddingLeft: 6,
     marginRight: 'auto',
     alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
     textShadowColor: 'rgba(0, 0, 0, 0.12)',
     textShadowOffset: {width: -1, height: 1},
     textShadowRadius: 6

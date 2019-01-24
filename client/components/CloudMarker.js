@@ -13,7 +13,7 @@ class MapMarker extends Component {
         onPress={this.props.onPress}
         image={Platform.OS === 'android' ? cloudConstants[this.props.type].image : undefined}
         tracksViewChanges={false}>
-        {Platform.OS === 'ios' && <Image style={{position: 'absolute', top: 0, height: 237, width: 166}} resizeMode='contain' source={cloudConstants[this.props.type].image} />}
+        {Platform.OS === 'ios' && <Image style={{position: 'absolute', top: 0, height: 68, width: 90}} resizeMode='contain' source={cloudConstants[this.props.type].image} />}
         <View style={{position: 'relative', height: 75, width: 120}}>
           <View style={style.ticker}><Text style={{fontSize: 13, fontWeight: 'bold'}}>{this.props.votes}</Text></View>
           <View style={[style.icon, {backgroundColor: cloudConstants[this.props.type].color}]}>

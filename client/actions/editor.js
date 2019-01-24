@@ -1,6 +1,7 @@
 import { Alert } from 'react-native'
 import fetcher from '../helpers/fetcher'
 import { toGeoJson, toLatLing } from '../helpers/geoLatLing'
+import { Audio } from 'expo'
 
 import * as uiActions from './ui'
 
@@ -55,9 +56,10 @@ export const createCloud = (data) => {
         ...(data.type === 'review' && {stars: data.stars}),
         ...(data.type === 'countdown' && {expiry: Math.floor(Date.now() / 1000) + data.expiry})
       }
-  )
+    )
 
     if (cloudResponse.successful) {
+      await Audio.Sound.createAsync(require('../assets/sounds/swoosh.mp3'), { shouldPlay: true })
       let remapped_cloud = {...cloudResponse.json, position: toLatLing(cloudResponse.json.position)}
 
       dispatch({type: 'APPEND_CLOUDS', payload: [remapped_cloud]})

@@ -12,10 +12,7 @@ import AvatarMarker from '../components/AvatarMarker'
 class UserMarker extends Component {
 
   componentDidMount () {
-    console.log('__ usermarker mounted __')
     Location.watchPositionAsync({accuracy: 5, distanceInterval: 1}, async location => {
-      console.log('####  POSITION UPDATED ####')
-      console.log(location.coords.accuracy)
       // runs on every position change
       await this.SigPosCalculate(location)
       this.props.actions.setUserPosition(location)
@@ -27,7 +24,9 @@ class UserMarker extends Component {
     if (this.props.state.last_sig_pos) {
       // fetch (poll) location based data from the server when the user has moved sig_pos_distance (meters)
       // to not flood the server with request TODO make polling slower when speed is high
-      if (geolib.getDistance(location.coords, this.props.state.last_sig_pos) > sig_pos_distance) { this.sigPoll(false, location) }
+      if (geolib.getDistance(location.coords, this.props.state.last_sig_pos) > sig_pos_distance) {
+        this.sigPoll(false, location)
+      }
     } else {
       // set the first sigPos if sigPos == null and poll the server
       this.props.actions.setLastSigPos(location)

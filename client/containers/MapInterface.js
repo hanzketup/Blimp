@@ -70,7 +70,8 @@ const style = StyleSheet.create({
     top: 0,
     right: 0,
     bottom: 0,
-    left: 0
+    left: 0,
+    zIndex: 30
   },
   topButtons: {
     position: 'absolute',

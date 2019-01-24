@@ -8,7 +8,7 @@ import LargeTitle from '../components/LargeTitle'
 class FancyTitle extends Component {
   render () {
     return (
-      <View style={{marginBottom: '8%'}}>
+      <View pointerEvents='none' style={{marginBottom: '8%'}}>
         {this.props.state.fonts_ready && <Text style={style.title}>{this.props.title}</Text>}
         <Text style={style.subTitle}>{this.props.subTitle}</Text>
       </View>

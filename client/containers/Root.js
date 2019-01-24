@@ -7,6 +7,7 @@ import { AsyncStorage } from 'react-native'
 
 import NavigationService from '../NavigationService'
 import fetcher from '../helpers/fetcher'
+import BackgroundListener from '../containers/BackgroundListener'
 
 import * as cloudConstants from '../constants/clouds'
 import { avatarIcons } from '../constants/avatars'
@@ -49,6 +50,7 @@ class Root extends Component {
     return (
       <SafeAreaView style={{flex: 1}}>
         <StatusBar hidden />
+        <BackgroundListener />
 
         {!this.props.state.app_ready &&
           <AppLoading

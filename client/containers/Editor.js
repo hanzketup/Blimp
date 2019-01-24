@@ -54,7 +54,13 @@ class Editor extends Component {
 
           <FancyTitle
             title={'Get Creative!'}
-            subTitle={'Just a simple chat message.'}
+            subTitle={
+              this.props.state.editor_mode === 'chat' ? 'Leave your mark on the map! Make it a good one.'
+              : this.props.state.editor_mode === 'deal' ? 'Give fellow users a heads up on sweet deals nearby.'
+              : this.props.state.editor_mode === 'review' ? 'Let people know what you think with a 1-5 star rating.'
+              : this.props.state.editor_mode === 'countdown' ? 'The cloud that implodes. Limit your message to hours or days.'
+              : ''
+            }
           />
 
           <EditorContent
@@ -73,14 +79,16 @@ class Editor extends Component {
             <TypeSelector color='#4a69bd' icon='bomb' onPress={() => this.props.actions.changeEditorMode('countdown')} selected={this.props.state.editor_mode === 'countdown'} />
           </View>
 
-          <TouchableOpacity activeOpacity={0.5} style={style.post} onPress={() => this.props.actions.createCloud({
-            type: this.props.state.editor_mode,
-            body: this.props.state.editor_text,
-            position: this.props.state.position,
-            code: this.props.state.editor_deal_code,
-            stars: this.props.state.editor_stars,
-            expiry: this.props.state.editor_expiry
-          })}>
+          <TouchableOpacity activeOpacity={0.5} style={style.post} onPress={async () => {
+            this.props.actions.createCloud({
+              type: this.props.state.editor_mode,
+              body: this.props.state.editor_text,
+              position: this.props.state.position,
+              code: this.props.state.editor_deal_code,
+              stars: this.props.state.editor_stars,
+              expiry: this.props.state.editor_expiry
+            })
+          }}>
             {this.props.state.fonts_ready && <Text style={style.postText}>Post</Text>}
           </TouchableOpacity>
 
@@ -147,6 +155,7 @@ const style = StyleSheet.create({
     right: 5,
     justifyContent: 'center',
     alignItems: 'center',
+    padding: 8,
     height: 55,
     width: 55,
     elevation: 10,

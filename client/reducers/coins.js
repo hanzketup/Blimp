@@ -8,7 +8,6 @@ export default (state = init, action) => {
     case 'ADD_COINS':
       let keys = [...state.coins.map(i => i.id)]
       let updated_coins = [...state.coins, ...action.payload.filter(i => !keys.includes(i.id))]
-      console.log(updated_coins)
       return {...state, coins: updated_coins}
 
     case 'PICKUP_COIN':
