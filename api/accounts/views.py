@@ -166,6 +166,7 @@ class Levelset(viewsets.ViewSet):
         account.position_history.add(
             HistoricPosition.objects.create(
                 position=point,
+                background=request.data.get('background', False),
                 initial=request.data.get('initial', False),
                 speed=request.data.get('speed', 0),
                 accuracy=request.data.get('accuracy', 0),

@@ -11,6 +11,10 @@ export const setMe = data => {
   return {type: 'SET_ME', payload: data}
 }
 
+export const setDistanceTraveled = value => {
+  return {type: 'SET_DISTANCE_TRAVELED', payload: value}
+}
+
 export const completeSignup = (username) => {
   return async dispatch => {
     let response = await fetcher(

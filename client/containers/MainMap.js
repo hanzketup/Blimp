@@ -25,6 +25,8 @@ class MainMap extends Component {
           coords={this.props.state.position}
           follow={this.props.state.follow && !this.props.state.feed_open} >
 
+          <UserMarker />
+
           {this.props.state.clouds.map(cld =>
             <CloudMarker
               key={1 + cld.id}
@@ -43,7 +45,6 @@ class MainMap extends Component {
             />
           )}
 
-          <UserMarker />
         </MapCanvas>
 
         <CloudFeed />

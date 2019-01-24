@@ -2,6 +2,8 @@ import { Location } from 'expo'
 import fetcher from '../helpers/fetcher'
 import { toGeoJson, toLatLing } from '../helpers/geoLatLing'
 
+import { setDistanceTraveled } from './user'
+
 // Not used right now, kept for potential future use.
 export const getUserPosition = () => {
   return async dispatch => {
@@ -16,16 +18,21 @@ export const getUserPosition = () => {
   }
 }
 
-export const logPosition = (position, isInitial) => {
+export const logPosition = (position, isInitial, background = false) => {
   return async dispatch => {
-    await fetcher(
+    let response = await fetcher(
       '/api/levels/log_position/',
       'POST',
       {
-        position: toGeoJson(position),
+        position: toGeoJson(position.coords),
+        background: background,
         initial: isInitial
       }
     )
+
+    if (response.successful) {
+      setDistanceTraveled(response.json.distance_traveled)
+    }
   }
 }
 

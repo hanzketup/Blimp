@@ -37,6 +37,7 @@ class UserMarker extends Component {
   sigPoll (isInitial = false, location) {
     this.props.actions.getClouds(location)
     this.props.actions.getCoins(location)
+    this.props.actions.logPosition(location, isInitial, false)
   }
 
   render () {

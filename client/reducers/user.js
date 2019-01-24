@@ -15,6 +15,9 @@ export default (state = init, action) => {
     case 'SET_ME':
       return {...state, me: action.payload}
 
+    case 'SET_DISTANCE_TRAVELED':
+      return {...state, me: {...state.me, distance_traveled: action.payload}}
+
     case 'SET_USERNAME':
       return {
         ...state,
