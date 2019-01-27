@@ -1,5 +1,5 @@
+import makeNoise from '../helpers/makeNoise'
 import fetcher from '../helpers/fetcher'
-import { Audio } from 'expo'
 
 export const toggleFeed = (state) => {
   return dispatch => {
@@ -13,7 +13,7 @@ export const setHighlighted = (id) => {
 
 export const setHighlightedAndOpen = (id) => {
   return dispatch => {
-    Audio.Sound.createAsync(require('../assets/sounds/plop.mp3'), { shouldPlay: true })
+    makeNoise('plop', true)
     dispatch({type: 'SET_HIGHLIGHTED', payload: id})
     dispatch({type: 'TOGGLE_FEED', payload: true})
   }
@@ -21,6 +21,7 @@ export const setHighlightedAndOpen = (id) => {
 
 export const voteCloud = (me, id) => {
   return async dispatch => {
+    makeNoise('burst', true)
     fetcher(
       `/api/clouds/${id}/vote/`,
       'POST',

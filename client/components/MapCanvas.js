@@ -21,6 +21,7 @@ class MainMap extends Component {
         minZoomLevel={19.5}
         maxZoomLevel={20}
         showsCompass={false}
+        showsIndoors={false}
         toolbarEnabled={false}
         customMapStyle={MapStyle}
         style={style.map}

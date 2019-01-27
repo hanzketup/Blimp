@@ -34,7 +34,7 @@ class CloudFeed extends Component {
         nearbyCount={this.props.state.clouds.length}>
 
         {this.props.state.clouds
-          // sort after proximity, move hightlighted to top
+          // sort after proximity, but bring hightlighted to top
           .sort((a, b) =>
           a.id == this.props.state.hightlighted_cloud ? -1
           : b.id == this.props.state.hightlighted_cloud ? 1

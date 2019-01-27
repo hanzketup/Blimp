@@ -7,5 +7,8 @@ export const required_permissions = [
   Permissions.NOTIFICATIONS
 ]
 
-export const sig_pos_distance = 5
+export const timed_poll_interval = 45000
+export const sig_pos_distance = 30
 export const coin_pickup_distance = 8
+
+export const max_accepted_accuracy = 60

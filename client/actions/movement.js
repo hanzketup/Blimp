@@ -2,6 +2,7 @@ import { Location } from 'expo'
 import fetcher from '../helpers/fetcher'
 import { toGeoJson, toLatLing } from '../helpers/geoLatLing'
 
+import { max_accepted_accuracy } from '../constants/globals'
 import { setDistanceTraveled } from './user'
 
 // Not used right now, kept for potential future use.
@@ -18,7 +19,7 @@ export const getUserPosition = () => {
   }
 }
 
-export const logPosition = (position, isInitial, background = false) => {
+export const logPosition = (position, isInitial, background) => {
   return async dispatch => {
     let response = await fetcher(
       '/api/levels/log_position/',
@@ -26,7 +27,11 @@ export const logPosition = (position, isInitial, background = false) => {
       {
         position: toGeoJson(position.coords),
         background: background,
-        initial: isInitial
+        initial: isInitial,
+        // metadata
+        speed: position.coords.speed,
+        accuracy: position.coords.accuracy,
+        altitude: position.coords.altitude
       }
     )
 
@@ -38,7 +43,17 @@ export const logPosition = (position, isInitial, background = false) => {
 
 export const setUserPosition = position => {
   return async dispatch => {
-    if (position.mocked) { return 0 }
+    // reject mock locations or too low ("shits fucked") accuracy
+    if (position.mocked || position.coords.accuracy > max_accepted_accuracy) { return 0 }
+    console.log(position)
+
+    // Display a badge for the user if gps accuract is too low
+    if (position.coords.accuracy > 30) { dispatch(toggleLowAccuracy(true)) } else { dispatch(toggleLowAccuracy(false)) }
+
+    // Display a badge for the user if the user is moving over max walk/run speed (m/s)
+    if (position.coords.speed > 4.5) { dispatch(toggleOverspeed(true)) } else { dispatch(toggleOverspeed(false)) }
+
+    // dispatch the actual map update
     dispatch({
       type: 'SET_USER_POSITION',
       payload: {
@@ -57,6 +72,19 @@ export const setLastSigPos = position => {
       longitude: position.coords.longitude
     }
   })
+}
+
+export const setPollTimestamp = () => {
+  let ts = Math.round(new Date().getTime() / 1000)
+  return {type: 'SET_LAST_SIG_POLL_TIMESTAMP', payload: ts}
+}
+
+export const toggleOverspeed = state => {
+  return {type: 'SET_OVERSPEED', payload: state}
+}
+
+export const toggleLowAccuracy = state => {
+  return {type: 'SET_LOW_ACCURACY', payload: state}
 }
 
 export const getClouds = position => {

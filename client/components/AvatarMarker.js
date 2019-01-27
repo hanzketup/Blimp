@@ -1,12 +1,31 @@
-import React from 'react'
-import { MapView } from 'expo'
+  import React, { Component } from 'react'
+  import { MapView } from 'expo'
 
-import { avatarIcons } from '../constants/avatars'
+  import { avatarIcons } from '../constants/avatars'
 
-export default props =>
-  <MapView.Marker.Animated
-    coordinate={props.coords}
-    style={{zIndex: 4}}
-    image={avatarIcons[props.avatar]}
-    onPress={props.onPress}
-  />
+  class AvatarMarker extends Component {
+
+    // componentDidUpdate () {
+    //   this.props.coords && this.marker._component.animateMarkerToCoordinate({
+    //     coordinate: {
+    //       latitude: this.props.coords.latitude,
+    //       longitude: this.props.coords.longitude
+    //     }
+    //   })
+    // }
+
+    render () {
+      return (
+        <MapView.Marker.Animated
+          ref={component => this.marker = component}
+          style={{zIndex: 4}}
+          coordinate={this.props.coords || {latitude: 0, longitude: 0}}
+          image={avatarIcons[this.props.avatar]}
+          onPress={this.props.onPress}
+      />
+      )
+    }
+
+  }
+
+  export default AvatarMarker

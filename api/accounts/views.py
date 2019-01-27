@@ -147,7 +147,9 @@ class Levelset(viewsets.ViewSet):
             distance_between = int(account.position.distance(point) * 100000)
 
             # add the distance between prev point and second point if not initial
-            if not request.data.get('initial', False) or not request.data.get('background', False):
+            # should only count walking/running, 4.5 meter per second cap.
+            is_foreground = not request.data.get('initial', False) or not request.data.get('background', False)
+            if is_foreground and request.data.get('speed', 0) < 4.5:
                 account.distance_traveled += distance_between
 
             # check if the user has moved over the goal meters

@@ -34,6 +34,11 @@ class MapInterface extends Component {
             <Icon style={style.icon} name={'satellite'} color='#fff5ea' type='light' size={23} />
           </RoundTopButton>
 
+          <View style={{justifyContent: 'center', alignItems: 'center', flexDirection: 'row'}}>
+            {this.props.state.low_accuracy && <Icon containerStyle={{padding: 3}} name='map-marker-slash' color='rgba(0, 0, 0, 0.2)' type='solid' size={17} />}
+            {this.props.state.overspeed && <Icon containerStyle={{padding: 3, paddingTop: 5}} name='car-side' color='rgba(0, 0, 0, 0.2)' type='solid' size={19} />}
+          </View>
+
         </View>
 
         {!this.props.state.feed_open && <CanvasButton onPress={this.props.navigation.toggleDrawer} placement='left' icon='user-circle' />}

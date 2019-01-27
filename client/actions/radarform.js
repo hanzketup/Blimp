@@ -1,5 +1,6 @@
 import fetcher from '../helpers/fetcher'
 import NavigationService from '../NavigationService'
+import { toGeoJson, toLatLing } from '../helpers/geoLatLing'
 import * as radarActions from './radar'
 
 export const changePinPosition = pos => {
@@ -42,10 +43,10 @@ export const tryRadar = (title, body) => {
 export const checkRadarYield = (position, radius) => {
   return async dispatch => {
     let response = await fetcher(
-      '/api/business/check/',
+      '/api/radar/check/',
       'POST',
       {
-        position: toGeoJson(position.coords),
+        position: toGeoJson(position),
         radius: radius
       }
     )

@@ -1,6 +1,5 @@
 import geolib from 'geolib'
-import { Audio } from 'expo'
-
+import makeNoise from '../helpers/makeNoise'
 import fetcher from '../helpers/fetcher'
 import { toGeoJson, toLatLing } from '../helpers/geoLatLing'
 
@@ -35,7 +34,7 @@ export const shouldPickup = (position, coins) => {
 
       dispatch({type: 'PICKUP_COIN', payload: cn.id})
       if (response.successful) {
-        Audio.Sound.createAsync(require('../assets/sounds/cash.mp3'), { shouldPlay: true })
+        makeNoise('cash', true)
         dispatch({type: 'APPEND_COINS', payload: cn.reward})
       }
     })

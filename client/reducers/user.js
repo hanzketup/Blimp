@@ -3,7 +3,9 @@ let init = {
   me: {},
   position: {latitude: 0, longitude: 0},
   last_sig_pos: null,
-  follow: true
+  follow: true,
+  overspeed: false,
+  low_accuracy: false
 }
 
 export default (state = init, action) => {
@@ -29,6 +31,12 @@ export default (state = init, action) => {
 
     case 'SET_LAST_SIG_POS':
       return {...state, last_sig_pos: action.payload}
+
+    case 'SET_OVERSPEED':
+      return {...state, overspeed: typeof (action.payload) === 'boolean' ? action.payload : !state.overspeed}
+
+    case 'SET_LOW_ACCURACY':
+      return {...state, low_accuracy: typeof (action.payload) === 'boolean' ? action.payload : !state.low_accuracy}
 
     case 'TOGGLE_USER_FOLLOW':
       return {...state, follow: typeof (action.follow) === 'boolean' ? action.payload : !state.follow}

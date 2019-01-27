@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, TouchableOpacity, Image, Text, StyleSheet, KeyboardAvoidingView } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { BackHandler } from 'react-native'
+import { BackHandler, ActivityIndicator } from 'react-native'
 import Icon from 'react-native-fontawesome-pro'
 
 import * as editorActions from '../actions/editor'
@@ -89,7 +89,10 @@ class Editor extends Component {
               expiry: this.props.state.editor_expiry
             })
           }}>
-            {this.props.state.fonts_ready && <Text style={style.postText}>Post</Text>}
+
+            {this.props.state.editor_loading && <ActivityIndicator size='large' color='#fff' />}
+            {(!this.props.state.editor_loading && this.props.state.fonts_ready) && <Text style={style.postText}> Post </Text>}
+
           </TouchableOpacity>
 
         </KeyboardAvoidingView>

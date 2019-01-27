@@ -1,5 +1,6 @@
 let init = {
   editor_mode: 'chat',
+  editor_loading: false,
   editor_text: '',
 
   editor_deal_code: '',
@@ -13,6 +14,9 @@ export default (state = init, action) => {
 
     case 'CHANGE_EDITOR_MODE':
       return {...state, editor_mode: action.payload}
+
+    case 'SET_EDITOR_LOADING':
+      return {...state, editor_loading: action.payload}
 
     case 'SET_EDITOR_TEXT':
       return {...state, editor_text: action.payload}

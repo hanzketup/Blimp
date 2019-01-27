@@ -7,6 +7,7 @@ import ui from './ui'
 import editor from './editor'
 import radar from './radar'
 import radarform from './radarform'
+import polling from './polling'
 
 const rootReducer = combineReducers({
   user,
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   ui,
   editor,
   radar,
-  radarform
+  radarform,
+  polling
 })
 
 export default rootReducer

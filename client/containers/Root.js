@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, View, SafeAreaView, StatusBar } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Font, Notifications, Image, AppLoading, Asset } from 'expo'
+import { Font, Notifications, Image, AppLoading, Asset, Audio } from 'expo'
 import { AsyncStorage } from 'react-native'
 
 import NavigationService from '../NavigationService'
@@ -39,6 +39,16 @@ class Root extends Component {
       'grand-hotel': require('../assets/fonts/GrandHotel-Regular.ttf')
     })
     this.props.actions.fontsAreReady()
+
+    // Setup expo sound
+    await Audio.setAudioModeAsync({
+      interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_MIX_WITH_OTHERS,
+      interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+      shouldDuckAndroid: true,
+      playsInSilentModeIOS: false,
+      allowsRecordingIOS: false,
+      playThroughEarpieceAndroid: false
+    })
 
     // get user from backend
     let response = await fetcher('/api/accounts/me/')

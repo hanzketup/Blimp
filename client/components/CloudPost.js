@@ -19,7 +19,7 @@ export default props => {
 
         <View style={style.user}>
           <Image style={style.userAvatar} source={avatarIcons[props.user.avatar || 0]} resizeMode='contain' />
-          <Text style={style.userName}>{props.user.username}</Text>
+          <Text style={[style.userName, (props.user.id === props.me && {color: '#5181b2'})]}>{props.user.username}</Text>
           <Text style={style.timeStamp}>{moment(props.timestamp, 'X').fromNow()}</Text>
 
           <Icon onPress={() => {
@@ -64,7 +64,7 @@ const style = StyleSheet.create({
     marginBottom: 12,
     backgroundColor: '#fafafa',
     borderRadius: 8,
-    paddingBottom: '1%',
+    paddingBottom: 2,
     marginTop: 'auto',
     overflow: 'hidden',
     borderWidth: 3,
@@ -131,7 +131,7 @@ const style = StyleSheet.create({
   voteCount: {
     fontSize: 18,
     fontWeight: 'normal',
-    opacity: 0.8,
+    opacity: 0.7,
     color: '#333',
     margin: 0,
     paddingRight: 8,

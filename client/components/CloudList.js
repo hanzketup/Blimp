@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
-import { StyleSheet, View, Image, Text, ScrollView, Dimensions } from 'react-native'
+import { StyleSheet, View, Image, Text, ScrollView, Dimensions, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-fontawesome-pro'
 import { LinearGradient } from 'expo'
 import SlidingUpPanel from 'rn-sliding-up-panel'
@@ -83,7 +83,17 @@ class CloudList extends Component {
                 onPress={this.props.openAction}
                 name='angle-double-up'
                 color={(!this.props.open && this.props.nearbyCount != 0) ? 'rgba(	243, 166, 131, 0.4)' : 'rgba(0, 0, 0, 0)'} type='regular' size={32} />
-              <Text style={style.nearbyText}>{this.props.nearbyCount} Nearby</Text>
+
+              <TouchableOpacity style={style.nearbyText} onPress={this.props.open ? this.props.closeAction : null}>
+                <Text style={[{textAlign: 'center'}, (this.props.open && {fontWeight: 'bold'})]}>
+                  {
+                    !this.props.open
+                    ? `${this.props.nearbyCount} Nearby`
+                    : 'Close'
+                  }
+                </Text>
+              </TouchableOpacity>
+
             </View>
 
             <LinearGradient style={style.inner} colors={['rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0.3)', 'rgba(0, 0, 0, 0.3)', 'rgba(0, 0, 0, 0.4)']}>
@@ -148,7 +158,7 @@ const style = StyleSheet.create({
     alignItems: 'center'
   },
   nearbyText: {
-    color: '#333',
+    minWidth: 60,
     padding: 8,
     paddingTop: 4,
     paddingBottom: 4,

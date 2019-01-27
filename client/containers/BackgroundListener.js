@@ -8,12 +8,10 @@ import * as movementActions from '../actions/movement'
 
 TaskManager.defineTask('background_location', ({ data: { locations }, error }) => {
   if (error) { return 0 }
+  // background geo should not be captured while aciveley viewing the app.
   if (AppState.currentState !== 'active') {
-    this.props.actions.logPosition(locations[0], false, true)
-    Expo.Notifications.presentLocalNotificationAsync({
-      title: 'background geolocation recorded',
-      body: `${locations}`
-    })
+    movementActions.logPosition(locations[0], false, true)
+    // Expo.Notifications.presentLocalNotificationAsync({title: 'background geolocation recorded', body: `${locations}`})
   }
 })
 

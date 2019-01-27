@@ -45,6 +45,6 @@ export default createAppContainer(createSwitchNavigator({
     screen: createStackNavigator({RadarModeration: {screen: RadarModeration}})
   }
 }, {
-  initialRouteName: 'Permissions'
+  initialRouteName: 'Main'
 })
 )
