@@ -7,13 +7,14 @@ class AccountMiddleware:
 
     def __call__(self, request):
         try:
-            Account = apps.get_model('accounts', 'Account')
-            response = self.get_response(request)
-            query = Account.objects.filter(user=request.user)
+            if request.user != 'AnonymousUser':
+                Account = apps.get_model('accounts', 'Account')
+                response = self.get_response(request)
+                query = Account.objects.filter(user=request.user)
 
-            # attach the users account to the response if found
-            if query.exists():
-                response.account = query.first()
+                # attach the users account to the response if found
+                if query.exists():
+                    response.account = query.first()
 
         except TypeError:
             response = self.get_response(request)

@@ -26,37 +26,38 @@ class UserMarker extends Component {
       ) {
         current_position = await Location.getCurrentPositionAsync({accuracy: 5})
         this.sigPoll(false, current_position)
+        this.props.actions.setUserPosition(current_position)
       }
     }, timed_poll_interval)
 
-    Location.watchPositionAsync({accuracy: 5}, async location => {
+    Location.watchPositionAsync({accuracy: 5}, async position => {
       // runs on every position change
-      await this.SigPosCalculate(location)
-      this.props.actions.setUserPosition(location)
-      this.props.actions.shouldPickup(location, this.props.state.coins)
+      await this.SigPosCalculate(position)
+      this.props.actions.setUserPosition(position)
+      this.props.actions.shouldPickup(position, this.props.state.coins)
     })
   }
 
-  SigPosCalculate (location) {
+  SigPosCalculate (position) {
     if (this.props.state.last_sig_pos) {
-      // fetch (poll) location based data from the server when the user has moved sig_pos_distance (meters)
+      // fetch (poll) position based data from the server when the user has moved sig_pos_distance (meters)
       // to not flood the server with request TODO make polling slower when speed is high
-      let since_last_distance = geolib.getDistance(location.coords, this.props.state.last_sig_pos)
-      if (location.coords.accuracy < max_accepted_accuracy && since_last_distance > sig_pos_distance) {
-        this.props.actions.setLastSigPos(location)
-        this.sigPoll(false, location)
+      let since_last_distance = geolib.getDistance(position.coords, this.props.state.last_sig_pos)
+      if (position.coords.accuracy < max_accepted_accuracy && since_last_distance > sig_pos_distance) {
+        this.props.actions.setLastSigPos(position)
+        this.sigPoll(false, position)
       }
     } else {
       // set the first sigPos if sigPos == null, and poll the server
-      this.props.actions.setLastSigPos(location)
-      this.sigPoll(true, location)
+      this.props.actions.setLastSigPos(position)
+      this.sigPoll(true, position)
     }
   }
 
-  sigPoll (isInitial = false, location) {
-    this.props.actions.getClouds(location)
-    this.props.actions.getCoins(location)
-    this.props.actions.logPosition(location, isInitial, false)
+  sigPoll (isInitial = false, position) {
+    this.props.actions.getClouds(position)
+    this.props.actions.getCoins(position)
+    this.props.actions.logPosition(position, isInitial, false)
     this.props.actions.setPollTimestamp()
   }
 
