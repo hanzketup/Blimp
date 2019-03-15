@@ -7,11 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e3e7c6a-15da-47d7-abdf-4bcf92ba9e04" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.expo/packager-info.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.expo/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounts/AccountMiddleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/AccountMiddleware.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/containers/UserMarker.js" beforeDir="false" afterPath="$PROJECT_DIR$/../client/containers/UserMarker.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,8 +81,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/accounts/AccountMiddleware.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="52" lean-forward="true" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+            <state relative-caret-position="162">
+              <caret line="9" column="40" lean-forward="true" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -133,6 +129,7 @@
       <find>CELERY</find>
       <find>log_position</find>
       <find>401</find>
+      <find>user.pk</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -606,8 +603,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/accounts/AccountMiddleware.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="52" lean-forward="true" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+        <state relative-caret-position="162">
+          <caret line="9" column="40" lean-forward="true" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
         </state>
       </provider>
     </entry>

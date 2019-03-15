@@ -7,7 +7,7 @@ class AccountMiddleware:
 
     def __call__(self, request):
         try:
-            if request.user != 'AnonymousUser':
+            if isinstance(request.user, int):
                 Account = apps.get_model('accounts', 'Account')
                 response = self.get_response(request)
                 query = Account.objects.filter(user=request.user)
