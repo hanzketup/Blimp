@@ -16,6 +16,9 @@ class AccountMiddleware:
                 if query.exists():
                     response.account = query.first()
 
+            else:
+                response = self.get_response(request)
+
         except TypeError:
             response = self.get_response(request)
             response.account = False  # set .account to false if no user was found attached
