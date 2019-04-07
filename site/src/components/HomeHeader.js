@@ -23,7 +23,7 @@ const Call = styled.div`
     width: 100%;
     margin-right: 0%;
   }
-  
+
 `
 
 const Badges = styled.div`
@@ -43,7 +43,7 @@ const MainTitle = styled.h1`
   @media (${x => x.theme.viewport.laptop}){
     font-size: 5rem;
   }
-  
+
   @media (${x => x.theme.viewport.phone}){
       font-size: 3rem;
       line-height: 1.1;
@@ -66,7 +66,7 @@ const TagTitle = styled.h3`
       width: 95%;
       font-size: 1.5rem;
   }
-  
+
 `
 
 export default props =>
@@ -74,7 +74,7 @@ export default props =>
     <MainTitle><Translate id='pages.home.mainTitle' /></MainTitle>
     <TagTitle><Translate id='pages.home.tagTitle' /></TagTitle>
     <Badges>
-      <Badge link='#' type='android' />
-      <Badge link='#' type='ios' />
+      <Badge link='https://play.google.com/store/apps/details?id=com.blimpuf.blimp' target='_blank' type='android' />
+      <Badge link='#' target='_blank' type='ios' />
     </Badges>
   </Call>

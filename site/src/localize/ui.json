@@ -11,26 +11,26 @@
     "home": {
       "title": ["Home", "Start"],
       "mainTitle": ["Get the app*", "Skaffa appen*"],
-      "tagTitle": ["*The blimp app is soon droppin on the app store and google play!", "*Blimp appen släpps snart för iphone och android!"],
+      "tagTitle": ["*The blimp app has dropped at google play and is comming soon to iPhone!", "*Blimp appen har släppts på google play och kommer snart till iPhone!"],
       "feature_one": {
         "title": ["Go Explore!", "Utforska världen!"],
         "desc": [
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget commodo diam. Quisque vitae pulvinar magna, ac laoreet justo. Vestibulum sollicitudin velit eget enim elementum maximus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget commodo diam. Quisque vitae pulvinar magna, ac laoreet justo. Vestibulum sollicitudin velit eget enim elementum maximus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+          "Your new travel companion! Blimp lets you place your mark on the map, get recommendations and review from locals and connect with the world!",
+          "Din nya resekompis! Blimp placerar dig på kartan, samtidigt som du får tips och rekommendationer från folk över hela världen! "
         ]
       },
       "feature_two": {
         "title": ["Heads up!", "Se upp!"],
         "desc": [
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget commodo diam. Quisque vitae pulvinar magna, ac laoreet justo. Vestibulum sollicitudin velit eget enim elementum maximus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
-           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget commodo diam. Quisque vitae pulvinar magna, ac laoreet justo. Vestibulum sollicitudin velit eget enim elementum maximus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+          "Share whats on your mind with the world, where it matters. Create a review, share a coupon code or share a fun story!",
+          "Dela dina tankar med världen, där de räknas. Skapa ett omdöme, dela en kupong kod eller dela en rolig historia!"
          ]
       },
       "preview": {
-        "title": ["Looks pretty rad right?", "Visst ser det mysigt ut!"],
+        "title": ["Looks pretty rad right?", "Ser väl bra ut!"],
         "desc": [
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget commodo diam. Quisque vitae pulvinar magna, ac laoreet justo.",
-           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eget commodo diam. Quisque vitae pulvinar magna, ac laoreet justo."
+          "Get the app today and start exploring!",
+           "Skaffa appen idag och börja utforska!"
          ],
         "button": ["Back to the top", "Tillbaka till toppen"]
       }
@@ -38,8 +38,8 @@
     "advertise": {
       "title": ["Advertise", "För Företag"],
       "first": [
-        "Nå ut till kunder i din närhet. Blimp låter dig driva geografiska reklamkampanjer, konvertera dina leads snabbt!",
-        "Reach out to potential client nearby with blimp BEAME. Advertise your business on a geographical basis and convert leads blazing fast!"
+        "Reach potential customers in your proximity. Blimp RADAR enable you to create geographic ad campaigns, save money and convert fast! Contact us for more information.",
+          "Nå ut till potentialla kunder i din närhet. Blimp RADAR låter dig driva geografiska reklamkampanjer, spara pengar och konvertera leads snabbt! Kontakta oss för mer information."
       ]
     },
     "contact": {
