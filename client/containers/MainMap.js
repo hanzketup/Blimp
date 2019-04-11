@@ -3,8 +3,10 @@ import { View, StatusBar } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Permissions } from 'expo'
+import { AsyncStorage } from 'react-native'
 
 import * as cloudAction from '../actions/clouds'
+import * as uiAction from '../actions/ui'
 import MapCanvas from '../components/MapCanvas'
 import CloudMarker from '../components/CloudMarker'
 import MapCoin from '../components/MapCoin'
@@ -14,8 +16,18 @@ import MapInterface from '../containers/MapInterface'
 import Editor from '../containers/Editor'
 import CloudFeed from '../containers/CloudFeed'
 import RadarModal from '../containers/RadarModal'
+import WelcomeGuide from '../containers/WelcomeGuide'
 
 class MainMap extends Component {
+
+  async componentDidMount () {
+    // open the welcome dialog if HasSeenWelcome is blank in local storage
+    let welcomed = await AsyncStorage.getItem('HasSeenWelcome')
+    if (welcomed !== 'done') {
+      this.props.actions.setWelcomeActive(true)
+      await AsyncStorage.setItem('HasSeenWelcome', 'done')
+    }
+  }
 
   render () {
     return (
@@ -52,6 +64,7 @@ class MainMap extends Component {
         <MapInterface navigation={this.props.navigation} />
 
         <RadarModal />
+        {this.props.state.welcome_active && <WelcomeGuide />}
 
       </View>
     )
@@ -69,7 +82,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({...cloudAction}, dispatch)
+  actions: bindActionCreators({...cloudAction, ...uiAction}, dispatch)
 })
 
 export default connect(

@@ -23,4 +23,4 @@ class AccountMiddleware:
             response = self.get_response(request)
             response.account = False  # set .account to false if no user was found attached
 
-        return response
+        return responseis_popup

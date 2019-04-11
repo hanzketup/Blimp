@@ -16,9 +16,9 @@ const DrawerNav = createDrawerNavigator({
   Map: {
     screen: Map
   },
-  Store: {
-    screen: createStackNavigator({Store: {screen: Store}})
-  },
+  // Store: {
+  //  screen: createStackNavigator({Store: {screen: Store}})
+  // },
   Settings: {
     screen: createStackNavigator({Settings: {screen: Settings}})
   }

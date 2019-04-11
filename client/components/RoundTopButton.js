@@ -6,7 +6,7 @@ export default props =>
   <TouchableHighlight
     onPress={props.onPress}
     underlayColor={props.color || '#ffa776'}
-    style={[style.button, {backgroundColor: props.color, borderColor: props.borderColor}]}>
+    style={[style.button, {backgroundColor: props.color, borderColor: props.borderColor}, props.style]}>
     {props.children}
   </TouchableHighlight>
 

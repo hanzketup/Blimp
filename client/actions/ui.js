@@ -13,3 +13,13 @@ export const toggleEditor = (state) => {
 export const fontsAreReady = () => {
   return {type: 'FONTS_ARE_READY'}
 }
+
+export const setWelcomeActive = (state) => {
+  console.log('welocme active: ' + state)
+  return {type: 'SET_WELCOME_ACTIVE', payload: state}
+}
+
+export const setWelcomeStep = (step) => {
+  console.log('step: ' + step)
+  return {type: 'SET_WELCOME_STEP', payload: step}
+}

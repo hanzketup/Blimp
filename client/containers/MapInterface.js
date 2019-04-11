@@ -18,11 +18,11 @@ class MapInterface extends Component {
           coins={this.props.state.me.coins}
           traveled={this.props.state.me.distance_traveled && (this.props.state.me.distance_traveled / 1000).toFixed(1)}
           goal={this.props.state.me.level && (this.props.state.me.level.goal / 1000).toFixed(1)}
-         />
+        />
 
         <View style={style.topButtons}>
 
-          <RoundTopButton color={'#10ac84'} borderColor={'#1dd1a1'} onPress={() => null}>
+          <RoundTopButton style={{opacity: 0.5}} color={'#10ac84'} borderColor={'#1dd1a1'} onPress={() => null}>
             <Icon style={style.icon} name={'backpack'} color='#fff5ea' type='light' size={26} />
           </RoundTopButton>
 
@@ -30,7 +30,7 @@ class MapInterface extends Component {
             <Icon style={style.icon} name={this.props.state.follow ? 'location' : 'location-slash'} color='#fff5ea' type='light' size={26} />
           </RoundTopButton>
 
-          <RoundTopButton color={'#e17055'} borderColor={'#fab1a0'} onPress={() => null}>
+          <RoundTopButton style={{opacity: 0.5}} color={'#e17055'} borderColor={'#fab1a0'} onPress={() => null}>
             <Icon style={style.icon} name={'satellite'} color='#fff5ea' type='light' size={23} />
           </RoundTopButton>
 

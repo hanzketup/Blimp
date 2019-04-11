@@ -23,6 +23,9 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "facebookDisplayName": "Blimp",
+    "facebookAppId": "257885001592015",
+    "facebookScheme": "fb257885001592015",
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.blimpuf.blimp",
@@ -33,14 +36,14 @@
         ]
       },
       "config": {
-        "googleMapsApiKey": "AIzaSyAQcFKeLl-WQ2-zDR-61G_WQ94Pmjx3Ibo"
+        "googleMapsApiKey": "AIzaSyC_CuUBj5SQ000H-Lmbx712v4dVNEek9Xs"
       }
     },
     "android": {
       "package": "com.blimpuf.blimp",
       "config": {
         "googleMaps": {
-          "apiKey": "AIzaSyAQcFKeLl-WQ2-zDR-61G_WQ94Pmjx3Ibo"
+          "apiKey": "AIzaSyC_CuUBj5SQ000H-Lmbx712v4dVNEek9Xs"
         }
       }
     }

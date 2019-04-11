@@ -43,8 +43,10 @@ export const authWithGoogle = () => {
     try {
       auth_request = await Google.logInAsync({
         behavior: 'web',
-        androidClientId: '140145899902-dc5v45hv4h2856n9p7m70r8ubf7pajum.apps.googleusercontent.com',
-        iosClientId: '140145899902-j1ie0ck7f682d3iqh4g50so7f288dks0.apps.googleusercontent.com'
+        androidClientId: '140145899902-9qd4cmde6hhdmuk829gndj4eu7i84u7u.apps.googleusercontent.com',
+        iosClientId: '140145899902-j1ie0ck7f682d3iqh4g50so7f288dks0.apps.googleusercontent.com',
+        androidStandaloneAppClientId: '140145899902-9qd4cmde6hhdmuk829gndj4eu7i84u7u.apps.googleusercontent.com',
+        iosStandaloneAppClientId: '140145899902-ogsbi9cq0i0rbqpe3f83bvrbhjja31m4.apps.googleusercontent.com'
       })
     } catch (err) {
       throw new Error('auth_request failed: ' + err)
